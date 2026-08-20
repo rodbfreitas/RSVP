@@ -1,26 +1,227 @@
 @import "tailwindcss";
 
+/* ============================================================
+   PAGODE DOS IRMÃOS — Design Tokens
+   Lambe-lambe brasileiro + pagode + boteco + esporte de areia
+   Fonte: Design System — Pagode dos Irmãos v1.0
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Paleta */
+  --paper: #e8d9b5;
+  --paper-light: #f2e8cd;
+  --ink: #171511;
+  --green: #129447;
+  --magenta: #d92973;
+  --orange: #f06423;
+  --yellow: #f5b82e;
+  --purple: #653c8f;
+
+  /* Espaçamento base 4px */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+
+  /* Bordas e sombras */
+  --border-w: 3px;
+  --shadow-hard: 5px 5px 0 var(--ink);
+  --shadow-hard-sm: 3px 3px 0 var(--ink);
+  --shadow-hard-lg: 8px 8px 0 var(--ink);
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-normal: 250ms;
+  --motion-slow: 400ms;
+  --ease-poster: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
 }
 
 @theme inline {
+  --color-paper: var(--paper);
+  --color-paper-light: var(--paper-light);
+  --color-ink: var(--ink);
+  --color-green: var(--green);
+  --color-magenta: var(--magenta);
+  --color-orange: var(--orange);
+  --color-yellow: var(--yellow);
+  --color-purple: var(--purple);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-display: "Anton", "Archivo Black", sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-hard: var(--shadow-hard);
+  --shadow-hard-sm: var(--shadow-hard-sm);
+  --shadow-hard-lg: var(--shadow-hard-lg);
+
+  --animate-stamp: stamp var(--motion-slow) var(--ease-poster);
+  --animate-slide-up: slide-up var(--motion-slow) var(--ease-poster);
+  --animate-pop-in: pop-in var(--motion-normal) var(--ease-poster);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* O evento é diurno/papel — mantemos o fundo creme mesmo em dark mode
+       do sistema, para preservar a identidade do cartaz. */
+    --background: var(--paper);
+    --foreground: var(--ink);
   }
+}
+
+* {
+  border-color: var(--ink);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Utilitários de identidade visual
+   ============================================================ */
+
+.font-display {
+  font-family: "Anton", "Archivo Black", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/* Textura de papel envelhecido — pseudo-elemento, nunca imagem pesada */
+.paper-texture {
+  position: relative;
+  isolation: isolate;
+}
+
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(23, 21, 17, 0.05) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(23, 21, 17, 0.06) 0%,
+      transparent 50%
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(23, 21, 17, 0.02) 0px,
+      rgba(23, 21, 17, 0.02) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+}
+
+.paper-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
+  background-size: 160px 160px;
+}
+
+/* Recorte/etiqueta com borda gráfica forte */
+.poster-card {
+  border: var(--border-w) solid var(--ink);
+  box-shadow: var(--shadow-hard);
+  background: var(--paper-light);
+}
+
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-w) solid var(--ink);
+  transform: rotate(-2deg);
+}
+
+@keyframes stamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.4) rotate(-8deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.95) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-2deg);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Safe area para CTA sticky no iPhone */
+.safe-bottom {
+  padding-bottom: max(var(--space-4), env(safe-area-inset-bottom));
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 2px;
 }
