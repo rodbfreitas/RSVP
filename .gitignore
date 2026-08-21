@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# deliverables gerados sob demanda (artes, exports) — não fazem parte do app
+/outputs
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
