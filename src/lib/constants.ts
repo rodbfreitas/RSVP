@@ -30,7 +30,7 @@ export const SCHEDULE = [
     color: "green",
     title: "ABERTURA DA ARENA",
     items: ["Beach Tennis", "Futevôlei", "Vôlei"],
-    note: "R$30 por pessoa — equipamentos inclusos",
+    note: "R$30 por pessoa — equipamentos inclusos • aceita check-in Wellhub e TotalPass",
   },
   {
     time: "13H",
