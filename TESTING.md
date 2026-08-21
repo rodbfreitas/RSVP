@@ -94,10 +94,10 @@ Capturado nesta sessão via Playwright em `/`, `/rsvp` e `/admin/login`:
 
 | Critério | Status |
 |---|---|
-| Site estiver publicado | ⏳ depende de deploy (ver README.md) |
+| Site estiver publicado | ✅ https://pagode-dos-irmaos.vercel.app |
 | Site funcionar corretamente em smartphone | ✅ validado nesta sessão |
-| RSVP puder ser enviado | ✅ código pronto — depende do Supabase real para teste ponta a ponta |
-| RSVP aparecer no Supabase | ⏳ depende do projeto Supabase estar criado |
+| RSVP puder ser enviado | ✅ testado ponta a ponta em produção nesta sessão (registro de QA criado e removido) |
+| RSVP aparecer no Supabase | ✅ confirmado via SQL após envio de teste em produção |
 | Acompanhantes contabilizados corretamente | ✅ lógica implementada e coberta por testes de normalização; validar com dados reais (§2) |
 | Participantes dos esportes contabilizados | ✅ idem |
 | Duplicidades tratadas | ✅ `unique(event_id, phone)` + fluxo de upsert |
@@ -113,4 +113,4 @@ Capturado nesta sessão via Playwright em `/`, `/rsvp` e `/admin/login`:
 | Dados privados não acessíveis publicamente | ✅ nenhuma policy de SELECT pública em `rsvps` |
 | Sem secrets expostos no frontend | ✅ `server-only` em `admin.ts` |
 | Build de produção passa sem erros | ✅ validado nesta sessão |
-| Fluxo completo testado | ⏳ falta a etapa com Supabase real (§2) |
+| Fluxo completo testado | ✅ RSVP real testado em produção; falta apenas o checklist manual §2 com múltiplos casos |
