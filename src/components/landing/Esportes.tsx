@@ -1,7 +1,21 @@
+import Image from "next/image";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { SportBadge } from "@/components/ui/SportBadge";
 import { EVENT, SPORTS } from "@/lib/constants";
 import { ShowerHead, Waves } from "lucide-react";
+
+const CHECKIN_PARTNERS = [
+  {
+    name: "Wellhub",
+    plan: "a partir do Silver+",
+    logo: "/assets/partners/wellhub.webp",
+  },
+  {
+    name: "TotalPass",
+    plan: "a partir do TP3",
+    logo: "/assets/partners/totalpass.webp",
+  },
+] as const;
 
 export function Esportes() {
   return (
@@ -34,9 +48,34 @@ export function Esportes() {
           </li>
         </ul>
 
-        <p className="text-sm md:text-base text-ink/70">
+        <p className="text-sm md:text-base text-ink/70 mb-6">
           Não precisa reservar quadra. É só chegar e formar a galera por lá.
         </p>
+
+        <div className="border-[3px] border-ink bg-yellow/25 px-4 py-3 md:px-5 md:py-4 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <p className="font-display text-sm md:text-base uppercase tracking-wide text-ink/80 flex-none">
+            Também aceitamos check-in:
+          </p>
+          <div className="flex flex-wrap items-center gap-4 md:gap-5">
+            {CHECKIN_PARTNERS.map((partner) => (
+              <div key={partner.name} className="flex items-center gap-2">
+                <Image
+                  src={partner.logo}
+                  alt={partner.name}
+                  width={128}
+                  height={128}
+                  className="w-9 h-9 md:w-10 md:h-10 border-[3px] border-ink flex-none"
+                />
+                <span className="text-sm md:text-base font-bold text-ink leading-tight">
+                  {partner.name}
+                  <span className="block text-xs md:text-sm font-normal text-ink/60">
+                    {partner.plan}
+                  </span>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
