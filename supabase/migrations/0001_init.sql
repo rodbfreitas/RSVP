@@ -72,6 +72,8 @@ create index if not exists rsvp_sports_sport_id_idx on public.rsvp_sports (sport
 create or replace function public.set_updated_at()
 returns trigger
 language plpgsql
+security invoker
+set search_path = ''
 as $$
 begin
   new.updated_at = now();
