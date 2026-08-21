@@ -35,7 +35,7 @@ export function CtaSticky() {
           fullWidth: true,
         })}
       >
-        EU VOU 🎉
+        CONFIRMAR PRESENÇA ✅
       </Link>
     </div>
   );

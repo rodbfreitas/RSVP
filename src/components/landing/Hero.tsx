@@ -50,7 +50,7 @@ export function Hero() {
               href="/rsvp"
               className={buttonClasses({ variant: "primary", color: "magenta" })}
             >
-              EU VOU 🎉
+              CONFIRMAR PRESENÇA ✅
             </Link>
             <a
               href="#programacao"

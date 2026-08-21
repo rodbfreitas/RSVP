@@ -22,7 +22,7 @@ export function Footer() {
             href="/rsvp"
             className={buttonClasses({ variant: "primary", color: "magenta" })}
           >
-            EU VOU 🎉
+            CONFIRMAR PRESENÇA ✅
           </Link>
           <LocationButton className="!text-paper-light !border-paper-light" />
         </div>

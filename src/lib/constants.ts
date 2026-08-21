@@ -55,7 +55,7 @@ export const SCHEDULE = [
     color: "green",
     title: "ÚLTIMA DO PAGODE",
     items: [],
-    note: "Aquela que nunca é a última.",
+    note: "Aquela saideira de sempre!",
   },
 ] as const;
 
