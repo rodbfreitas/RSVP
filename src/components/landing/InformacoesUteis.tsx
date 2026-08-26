@@ -1,10 +1,11 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { EVENT, INFO_UTEIS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { Baby, ParkingCircle, ShowerHead, UtensilsCrossed, MapPin } from "lucide-react";
+import { Baby, ParkingCircle, ShowerHead, Ticket, UtensilsCrossed, MapPin } from "lucide-react";
 import type { ComponentType } from "react";
 
 const ICONS: Record<string, ComponentType<{ size?: number; className?: string; "aria-hidden"?: boolean }>> = {
+  ticket: Ticket,
   utensils: UtensilsCrossed,
   shower: ShowerHead,
   parking: ParkingCircle,

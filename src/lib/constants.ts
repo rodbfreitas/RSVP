@@ -67,6 +67,13 @@ export const SPORTS = ["Beach Tennis", "Futevôlei", "Vôlei", "Livre"] as const
 
 export const INFO_UTEIS = [
   {
+    icon: "ticket",
+    color: "green",
+    title: "ENTRADA É DE GRAÇA",
+    description:
+      "Não tem ingresso nem consumação mínima — a Arena cedeu o espaço numa boa. Só paga quem for jogar esporte (R$30, com tudo incluso). Fora isso é só chegar, curtir e pedir o que quiser no local.",
+  },
+  {
     icon: "utensils",
     color: "orange",
     title: "COMIDA E BEBIDA",
