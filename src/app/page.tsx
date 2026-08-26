@@ -1,6 +1,7 @@
 import { Hero } from "@/components/landing/Hero";
 import { Programacao } from "@/components/landing/Programacao";
 import { Esportes } from "@/components/landing/Esportes";
+import { InformacoesUteis } from "@/components/landing/InformacoesUteis";
 import { Footer } from "@/components/landing/Footer";
 import { CtaSticky } from "@/components/landing/CtaSticky";
 
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <Programacao />
       <Esportes />
+      <InformacoesUteis />
       <Footer />
       <CtaSticky />
     </main>

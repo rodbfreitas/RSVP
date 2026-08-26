@@ -19,6 +19,10 @@ export const EVENT = {
   // URL oficial da Arena Éssipê no Google Maps
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Arena+Essipe+Rua+Inhauma+71+Barra+Funda+Sao+Paulo",
+  // Busca ao vivo por estacionamentos próximos (a Arena não tem vaga própria).
+  // Usar busca em vez de link fixo mantém a informação sempre atualizada.
+  parkingMapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=estacionamento+perto+de+Rua+Inhauma+71+Barra+Funda+Sao+Paulo",
   targetGuests: 100,
   recommendedRsvp: 110,
   sportsPricePerPerson: 30,
@@ -60,6 +64,39 @@ export const SCHEDULE = [
 ] as const;
 
 export const SPORTS = ["Beach Tennis", "Futevôlei", "Vôlei", "Livre"] as const;
+
+export const INFO_UTEIS = [
+  {
+    icon: "utensils",
+    color: "orange",
+    title: "COMIDA E BEBIDA",
+    description:
+      "O local tem cardápio bem completo: refeições, lanches, porções e açaí, além de bebidas não alcoólicas e drinks. Cada um pede e paga o que quiser, no seu ritmo — sem cardápio fechado.",
+  },
+  {
+    icon: "shower",
+    color: "green",
+    title: "VESTIÁRIO COMPLETO",
+    description:
+      "Armário e chuveiro à disposição. Dá pra levar uma troca de roupa, tomar um banho depois do esporte e já ficar pronto pro pagode da tarde.",
+  },
+  {
+    icon: "parking",
+    color: "magenta",
+    title: "ESTACIONAMENTO",
+    description:
+      "A arena não tem vaga própria, mas a região tem bastante opção de estacionamento pago pertinho.",
+    linkLabel: "Ver estacionamentos próximos",
+    linkUrlKey: "parkingMapsUrl",
+  },
+  {
+    icon: "baby",
+    color: "purple",
+    title: "TODAS AS IDADES",
+    description:
+      "Pode trazer a criançada! O Pagode dos Irmãos é família — de neném a vovô, todo mundo é bem-vindo.",
+  },
+] as const;
 
 export const WHATSAPP_INVITE_MESSAGE = `🍻🥁 PAGODE DOS IRMÃOS
 Rodrigo 43 + Gabriel 30
