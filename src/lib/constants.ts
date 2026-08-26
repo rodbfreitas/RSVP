@@ -94,7 +94,7 @@ export const INFO_UTEIS = [
     color: "purple",
     title: "TODAS AS IDADES",
     description:
-      "Pode trazer a criançada! O Pagode dos Irmãos é família — de neném a vovô, todo mundo é bem-vindo.",
+      "Pode trazer a criançada! O Pagode dos Irmãos é família — de neném a vovô, todo mundo é bem-vindo. E é pet friendly: o cachorro da casa também pode ir.",
   },
 ] as const;
 
