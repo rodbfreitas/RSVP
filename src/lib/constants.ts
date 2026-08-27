@@ -32,9 +32,9 @@ export const SCHEDULE = [
   {
     time: "09H",
     color: "green",
-    title: "ABERTURA DA ARENA",
+    title: "ESPORTES (OPCIONAL)",
     items: ["Beach Tennis", "Futevôlei", "Vôlei"],
-    note: "R$30 por pessoa — equipamentos inclusos • aceita check-in Wellhub e TotalPass",
+    note: "R$30 só pra quem for jogar — equipamentos inclusos, aceita Wellhub e TotalPass. Só pro pagode? Não paga nada, pode chegar a partir das 13h.",
   },
   {
     time: "13H",
@@ -59,7 +59,7 @@ export const SCHEDULE = [
     color: "green",
     title: "ÚLTIMA DO PAGODE",
     items: [],
-    note: "Aquela saideira de sempre!",
+    note: "Aquela saideira de sempre — e o tchau oficial do dia. A festa encerra aqui, às 17h.",
   },
 ] as const;
 

@@ -24,6 +24,12 @@ export function Programacao() {
     >
       <SectionTitle eyebrow="SE LIGA NA PROGRAMAÇÃO" title="LINE-UP DO DIA" color="green" />
 
+      <p className="text-sm md:text-base text-ink/70 -mt-4 mb-6 md:-mt-6 md:mb-8">
+        <strong className="text-ink">Não precisa chegar às 9h.</strong> Quer
+        jogar? Cola a partir das 9h. Quer só o pagode? Chega a partir das 13h.
+        Quer fazer tudo? Melhor ainda.
+      </p>
+
       <ol className="flex flex-col gap-3 md:gap-4">
         {SCHEDULE.map((item) => (
           <li

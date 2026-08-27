@@ -8,8 +8,14 @@ import {
   GoogleCalendarLink,
 } from "@/components/ui/ActionButtons";
 import { Button } from "@/components/ui/Button";
-import { EVENT, buildWhatsAppInviteMessage } from "@/lib/constants";
+import { EVENT, SCHEDULE, buildWhatsAppInviteMessage } from "@/lib/constants";
 import type { RsvpWithSports } from "@/lib/types";
+
+const DAY_HIGHLIGHTS = [
+  { emoji: "🕘", text: `Esportes a partir das ${SCHEDULE[0].time.replace("H", "h")} (opcional)` },
+  { emoji: "🍻", text: `Boteco a partir das ${SCHEDULE[1].time.replace("H", "h")}` },
+  { emoji: "🎶", text: `Pagode às ${SCHEDULE[2].time.replace("H", "h")}` },
+];
 
 export function RsvpConfirmation({
   rsvp,
@@ -63,6 +69,13 @@ export function RsvpConfirmation({
         </p>
         <p className="text-base">{EVENT.venue}</p>
         <p className="text-sm text-ink/60 mb-3">{EVENT.address}</p>
+        <div className="flex flex-col gap-0.5 text-sm text-ink/70 mb-1">
+          {DAY_HIGHLIGHTS.map((h) => (
+            <p key={h.text}>
+              {h.emoji} {h.text}
+            </p>
+          ))}
+        </div>
         <div className="h-px bg-ink/15 my-3" />
         <p className="text-sm">
           <strong>{rsvp.guest_count}</strong> pessoa

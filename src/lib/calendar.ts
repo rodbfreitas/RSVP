@@ -22,7 +22,7 @@ export function buildIcsContent(): string {
     `DTSTART:${toIcsDate(start)}`,
     `DTEND:${toIcsDate(end)}`,
     `SUMMARY:${EVENT.name}`,
-    `DESCRIPTION:${EVENT.hosts} — Esportes\\, boteco e pagode. Confirme sua presença em pagodedosirmaos.com.br`,
+    `DESCRIPTION:${EVENT.hosts}\\n09h esportes (opcional)\\, 13h boteco\\, 14h pagode\\, 15h30 parabéns\\, 17h saideira e encerramento.\\nMais detalhes em pagodedosirmaos.com.br`,
     `LOCATION:${EVENT.venue} — ${EVENT.address}`,
     "END:VEVENT",
     "END:VCALENDAR",
@@ -39,7 +39,7 @@ export function buildGoogleCalendarLink(): string {
     action: "TEMPLATE",
     text: EVENT.name,
     dates: `${start}/${end}`,
-    details: `${EVENT.hosts} — Esportes, boteco e pagode. pagodedosirmaos.com.br`,
+    details: `${EVENT.hosts}\n09h esportes (opcional), 13h boteco, 14h pagode, 15h30 parabéns, 17h saideira e encerramento.\npagodedosirmaos.com.br`,
     location: `${EVENT.venue}, ${EVENT.address}`,
   });
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
