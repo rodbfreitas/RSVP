@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { RsvpForm } from "@/components/rsvp/RsvpForm";
 import { RsvpConfirmation } from "@/components/rsvp/RsvpConfirmation";
+import { EVENT } from "@/lib/constants";
 import type { RsvpWithSports } from "@/lib/types";
 
 export default function RsvpPage() {
@@ -32,8 +33,11 @@ export default function RsvpPage() {
             <h1 className="font-display uppercase text-3xl md:text-4xl mb-1">
               Confirme sua presença
             </h1>
-            <p className="text-ink/70 mb-8">
+            <p className="text-ink/70 mb-1">
               Pagode dos Irmãos · 27.09.2026 · Arena Éssipê
+            </p>
+            <p className="text-sm text-magenta font-bold mb-8">
+              Confirme, de preferência, até {EVENT.rsvpDeadlineLabel}.
             </p>
 
             <RsvpForm

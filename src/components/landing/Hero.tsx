@@ -59,6 +59,11 @@ export function Hero() {
               VER PROGRAMAÇÃO
             </a>
           </div>
+
+          <p className="text-xs md:text-sm text-ink/60 mt-3">
+            Confirme, de preferência, até{" "}
+            <strong className="text-ink">{EVENT.rsvpDeadlineLabel}</strong>.
+          </p>
         </div>
 
         <div className="order-1 lg:order-2 flex justify-center">

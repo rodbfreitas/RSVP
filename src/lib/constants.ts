@@ -16,6 +16,9 @@ export const EVENT = {
   venue: "Arena Éssipê",
   address: "Rua Inhaúma, 71 — Barra Funda, São Paulo/SP",
   neighborhood: "Barra Funda/SP",
+  // Prazo preferencial de RSVP — não bloqueia confirmação após a data,
+  // só ajuda no controle e cria um senso de urgência saudável.
+  rsvpDeadlineLabel: "14/09",
   // URL oficial da Arena Éssipê no Google Maps
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Arena+Essipe+Rua+Inhauma+71+Barra+Funda+Sao+Paulo",
