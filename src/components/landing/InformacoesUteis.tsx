@@ -1,7 +1,16 @@
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { EVENT, INFO_UTEIS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
-import { Baby, ParkingCircle, ShowerHead, Ticket, UtensilsCrossed, MapPin } from "lucide-react";
+import {
+  Baby,
+  CloudRain,
+  ParkingCircle,
+  Shirt,
+  ShowerHead,
+  Ticket,
+  UtensilsCrossed,
+  MapPin,
+} from "lucide-react";
 import type { ComponentType } from "react";
 
 const ICONS: Record<string, ComponentType<{ size?: number; className?: string; "aria-hidden"?: boolean }>> = {
@@ -10,6 +19,8 @@ const ICONS: Record<string, ComponentType<{ size?: number; className?: string; "
   shower: ShowerHead,
   parking: ParkingCircle,
   baby: Baby,
+  shirt: Shirt,
+  rain: CloudRain,
 };
 
 const textColor: Record<string, string> = {

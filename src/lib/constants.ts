@@ -103,6 +103,20 @@ export const INFO_UTEIS = [
     description:
       "Pode trazer a criançada! O Pagode dos Irmãos é família — de neném a vovô, todo mundo é bem-vindo. E é pet friendly: o cachorro da casa também pode ir.",
   },
+  {
+    icon: "shirt",
+    color: "orange",
+    title: "O QUE VESTIR",
+    description:
+      "De manhã: roupa de banho/esporte + protetor solar (o vestiário resolve a troca). À tarde: fica à vontade, sem cerimônia — o clima é resenha.",
+  },
+  {
+    icon: "rain",
+    color: "magenta",
+    title: "E SE CHOVER?",
+    description:
+      "Relaxa: a Arena tem área coberta, então o pagode não para por causa de chuva.",
+  },
 ] as const;
 
 export const WHATSAPP_INVITE_MESSAGE = `🍻🥁 PAGODE DOS IRMÃOS
