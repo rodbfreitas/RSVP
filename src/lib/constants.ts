@@ -168,6 +168,19 @@ export const FOOD_TRUCKS = [
     ],
     pdfUrl: "/assets/cardapios/cardapio-solares.pdf",
   },
+  {
+    slug: "vaca-na-faca",
+    name: "Vaca na Faca",
+    color: "magenta",
+    tagline: "Hambúrgueres artesanais e porções pra dividir",
+    highlights: [
+      { item: "Cowboy", price: "R$37,50" },
+      { item: "Vaca na Faca", price: "R$35,90" },
+      { item: "Super Fritas (400g)", price: "R$45,90" },
+      { item: "Onion Rings Grande (21un)", price: "R$32,90" },
+    ],
+    pdfUrl: "/assets/cardapios/cardapio-vaca-na-faca.pdf",
+  },
 ] as const;
 
 export const WHATSAPP_INVITE_MESSAGE = `🍻🥁 PAGODE DOS IRMÃOS
