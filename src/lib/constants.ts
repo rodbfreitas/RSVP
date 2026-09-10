@@ -82,6 +82,8 @@ export const INFO_UTEIS = [
     title: "COMIDA E BEBIDA",
     description:
       "O local tem cardápio bem completo: refeições, lanches, porções e açaí, além de bebidas não alcoólicas e drinks. Cada um pede e paga o que quiser, no seu ritmo — sem cardápio fechado.",
+    linkLabel: "Ver quem vai estar lá",
+    href: "/comidas",
   },
   {
     icon: "shower",
@@ -119,6 +121,52 @@ export const INFO_UTEIS = [
     title: "E SE CHOVER?",
     description:
       "Relaxa: a Arena tem área coberta, então o pagode não para por causa de chuva.",
+  },
+] as const;
+
+// Food trucks/quiosques confirmados pra vender no dia do evento.
+// Preços e itens são um resumo curado — o cardápio completo (PDF) tem tudo.
+export const FOOD_TRUCKS = [
+  {
+    slug: "saudoso-petisco",
+    name: "Saudoso Petisco",
+    color: "orange",
+    tagline: "Espetinhos, petiscos de boteco e porções fritas",
+    instagram: "@saudosopetisco",
+    highlights: [
+      { item: "Espetos tradicionais (carne, frango, kafta...)", price: "R$12" },
+      { item: "Buffalo Wings (12un)", price: "R$48" },
+      { item: "Iscas de Frango à Milanesa", price: "R$59" },
+      { item: "Saudoso Almoço (arroz, feijão, fritas + 1 espeto)", price: "R$29,99" },
+    ],
+    pdfUrl: "/assets/cardapios/cardapio-saudoso-petisco.pdf",
+  },
+  {
+    slug: "shark",
+    name: "Shark Food & Açaí",
+    color: "green",
+    tagline: "Açaí montado na hora, smoothies proteicos e salgados",
+    highlights: [
+      { item: "Açaí 500ml (o mais pedido)", price: "R$29,90" },
+      { item: "Smoothie proteico 500ml", price: "R$24,90" },
+      { item: "Combo Clássico (açaí + pão de queijo)", price: "R$39,90" },
+      { item: "Dadinho de Tapioca", price: "R$19,90" },
+    ],
+    pdfUrl: "/assets/cardapios/cardapio-shark.pdf",
+  },
+  {
+    slug: "solares",
+    name: "Solares Frutas Saudáveis",
+    color: "purple",
+    tagline: "Tapiocas, saladas, wraps e sucos naturais",
+    instagram: "@solaressaudaveis",
+    highlights: [
+      { item: "Tapioca Frango", price: "R$18,90" },
+      { item: "Salada Caesar", price: "R$28,90" },
+      { item: "Wrap Frango com Goiabada Picante", price: "R$25,90" },
+      { item: "Suco com 2 frutas", price: "R$15,90" },
+    ],
+    pdfUrl: "/assets/cardapios/cardapio-solares.pdf",
   },
 ] as const;
 

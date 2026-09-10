@@ -10,7 +10,9 @@ import {
   Ticket,
   UtensilsCrossed,
   MapPin,
+  ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
 import type { ComponentType } from "react";
 
 const ICONS: Record<string, ComponentType<{ size?: number; className?: string; "aria-hidden"?: boolean }>> = {
@@ -52,7 +54,15 @@ export function InformacoesUteis() {
                 </h3>
               </div>
               <p className="text-sm md:text-base text-ink/80">{item.description}</p>
-              {"linkLabel" in item && item.linkLabel ? (
+              {"href" in item && item.href ? (
+                <Link
+                  href={item.href}
+                  className="inline-flex items-center gap-1.5 text-sm md:text-base font-bold text-ink underline underline-offset-4 decoration-2 mt-1"
+                >
+                  <ArrowRight size={16} aria-hidden />
+                  {item.linkLabel}
+                </Link>
+              ) : "linkUrlKey" in item && item.linkLabel ? (
                 <a
                   href={EVENT[item.linkUrlKey as keyof typeof EVENT] as string}
                   target="_blank"
