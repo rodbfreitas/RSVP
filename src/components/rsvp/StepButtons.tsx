@@ -33,9 +33,9 @@ export function StepButtons<T extends string>({
             aria-checked={active}
             onClick={() => onChange(opt.value)}
             className={cn(
-              "min-h-[52px] border-[3px] border-ink font-display uppercase text-sm md:text-base transition-all focus-ring px-2",
+              "min-h-[52px] rounded-[6px] border border-line font-display uppercase text-sm md:text-base transition-all focus-ring px-2",
               active
-                ? "bg-ink text-paper-light shadow-hard-sm"
+                ? "bg-green/15 text-green border-green shadow-hard-sm"
                 : "bg-paper-light text-ink hover:bg-ink/5",
             )}
           >

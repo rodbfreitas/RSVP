@@ -3,27 +3,25 @@
 // ============================================================
 
 export const EVENT = {
-  slug: "pagode-dos-irmaos-2026",
-  name: "Pagode dos Irmãos",
-  hosts: "Rodrigo 43 & Gabriel 30",
-  dateISO: "2026-09-27",
-  dateLabel: "27.09.2026",
-  dateLabelShort: "27/09",
-  weekday: "Domingo",
+  slug: "encontro-governanca-seguranca-2026",
+  name: "Encontro da Governança de Segurança",
+  shortName: "Encontro GovSec",
+  code: "GOV-2026-1217",
+  hosts: "Governança de Segurança",
+  dateISO: "2026-12-17",
+  dateLabel: "17.12.2026",
+  dateLabelShort: "17/12",
+  weekday: "Quinta-feira",
   startTime: "09:00",
-  endTime: "17:00",
-  timeLabel: "09h às 17h",
+  endTime: "22:00",
+  timeLabel: "09h às 22h",
   venue: "Arena Éssipê",
   address: "Rua Inhaúma, 71 — Barra Funda, São Paulo/SP",
   neighborhood: "Barra Funda/SP",
-  // Prazo preferencial de RSVP — não bloqueia confirmação após a data,
-  // só ajuda no controle e cria um senso de urgência saudável.
-  rsvpDeadlineLabel: "14/09",
-  // URL oficial da Arena Éssipê no Google Maps
+  // Prazo preferencial de RSVP — não bloqueia confirmação após a data.
+  rsvpDeadlineLabel: "01/11",
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Arena+Essipe+Rua+Inhauma+71+Barra+Funda+Sao+Paulo",
-  // Busca ao vivo por estacionamentos próximos (a Arena não tem vaga própria).
-  // Usar busca em vez de link fixo mantém a informação sempre atualizada.
   parkingMapsUrl:
     "https://www.google.com/maps/search/?api=1&query=estacionamento+perto+de+Rua+Inhauma+71+Barra+Funda+Sao+Paulo",
   targetGuests: 100,
@@ -34,35 +32,46 @@ export const EVENT = {
 export const SCHEDULE = [
   {
     time: "09H",
-    color: "green",
-    title: "ESPORTES (OPCIONAL)",
-    items: ["Beach Tennis", "Futevôlei", "Vôlei"],
-    note: "R$30 só pra quem for jogar — equipamentos inclusos, aceita Wellhub e TotalPass. Só pro pagode? Não paga nada, pode chegar a partir das 13h.",
-  },
-  {
-    time: "13H",
-    color: "orange",
-    title: "ABRE O BOTECO",
-    items: ["Comida", "Cerveja", "Drinks", "Resenha"],
-  },
-  {
-    time: "14H",
+    until: "10H",
     color: "magenta",
-    title: "PAGODE",
-    items: ["Ao vivo"],
+    tag: "SPRINT REVIEW",
+    title: "REUNIÃO DE FECHAMENTO 2026",
+    items: ["Retrospectiva do ano", "Indicadores e entregas", "Prioridades de 2027"],
+  },
+  {
+    time: "11H",
+    until: "16H",
+    color: "green",
+    tag: "STRESS TEST",
+    title: "CÁRDIO QUEIMA BUCHO",
+    items: ["Beach Tennis", "Vôlei", "Futevôlei"],
+    note: "Quadras de areia liberadas. R$30 só pra quem for jogar (aceita Wellhub e TotalPass).",
+  },
+  {
+    time: "12H",
+    until: null,
+    color: "orange",
+    tag: "REABASTECIMENTO",
+    title: "COMES E BEBES",
+    items: ["Comida", "Cerveja", "Drinks", "Açaí"],
+    note: "A partir das 12h. Cada um pede e paga o que quiser direto nos quiosques.",
   },
   {
     time: "15H30",
+    until: null,
     color: "purple",
-    title: "PARABÉNS",
-    items: ["Bolo + doces"],
+    tag: "RELEASE NOTES",
+    title: "ENCERRAMENTO E AGRADECIMENTOS",
+    items: ["Mensagem de fechamento do ano"],
   },
   {
-    time: "17H",
-    color: "green",
-    title: "ÚLTIMA DO PAGODE",
-    items: [],
-    note: "Aquela saideira de sempre — e o tchau oficial do dia. A festa encerra aqui, às 17h.",
+    time: "16H",
+    until: "22H",
+    color: "yellow",
+    tag: "MODO LIVRE",
+    title: "CADA UM POR SI",
+    items: ["Quadras offline", "Bar online"],
+    note: "As quadras fecham às 16h, mas o bar segue aberto até as 22h.",
   },
 ] as const;
 
@@ -72,29 +81,29 @@ export const INFO_UTEIS = [
   {
     icon: "ticket",
     color: "green",
-    title: "ENTRADA É DE GRAÇA",
+    title: "ENTRADA LIBERADA",
     description:
-      "Não tem ingresso nem consumação mínima — a Arena cedeu o espaço numa boa. Só paga quem for jogar esporte (R$30, com tudo incluso). Fora isso é só chegar, curtir e pedir o que quiser no local.",
+      "Sem ingresso e sem consumação mínima. Só paga quem for jogar nas quadras (R$30). Fora isso, é só chegar e pedir o que quiser no local.",
   },
   {
     icon: "utensils",
     color: "orange",
     title: "COMIDA E BEBIDA",
     description:
-      "O local tem cardápio bem completo: refeições, lanches, porções e açaí, além de bebidas não alcoólicas e drinks. Cada um pede e paga o que quiser, no seu ritmo — sem cardápio fechado.",
+      "O local tem cardápio bem completo: refeições, lanches, porções e açaí, além de bebidas não alcoólicas e drinks. Cada um pede e paga o que quiser, no seu ritmo.",
     linkLabel: "Ver quem vai estar lá",
     href: "/comidas",
   },
   {
     icon: "shower",
-    color: "green",
+    color: "magenta",
     title: "VESTIÁRIO COMPLETO",
     description:
-      "Armário e chuveiro à disposição. Dá pra levar uma troca de roupa, tomar um banho depois do esporte e já ficar pronto pro pagode da tarde.",
+      "Armário e chuveiro à disposição. Leve uma troca de roupa, tome um banho depois das quadras e siga pro modo livre.",
   },
   {
     icon: "parking",
-    color: "magenta",
+    color: "purple",
     title: "ESTACIONAMENTO",
     description:
       "A arena não tem vaga própria, mas a região tem bastante opção de estacionamento pago pertinho.",
@@ -102,25 +111,18 @@ export const INFO_UTEIS = [
     linkUrlKey: "parkingMapsUrl",
   },
   {
-    icon: "baby",
-    color: "purple",
-    title: "TODAS AS IDADES",
-    description:
-      "Pode trazer a criançada! O Pagode dos Irmãos é família — de neném a vovô, todo mundo é bem-vindo. E é pet friendly: o cachorro da casa também pode ir.",
-  },
-  {
     icon: "shirt",
-    color: "orange",
+    color: "yellow",
     title: "O QUE VESTIR",
     description:
-      "De manhã: roupa de banho/esporte + protetor solar (o vestiário resolve a troca). À tarde: fica à vontade, sem cerimônia — o clima é resenha.",
+      "Pra reunião, o de sempre. Pras quadras, roupa de esporte + protetor solar (o vestiário resolve a troca). Depois, fica à vontade.",
   },
   {
     icon: "rain",
     color: "magenta",
     title: "E SE CHOVER?",
     description:
-      "Relaxa: a Arena tem área coberta, então o pagode não para por causa de chuva.",
+      "Plano de contingência ativo: a Arena tem área coberta, então o encontro não para por causa de chuva.",
   },
 ] as const;
 
@@ -183,25 +185,24 @@ export const FOOD_TRUCKS = [
   },
 ] as const;
 
-export const WHATSAPP_INVITE_MESSAGE = `🍻🥁 PAGODE DOS IRMÃOS
-Rodrigo 43 + Gabriel 30
+export const WHATSAPP_INVITE_MESSAGE = `🛡️ ENCONTRO DA GOVERNANÇA DE SEGURANÇA
 
-📅 27/09/2026
+📅 17/12/2026 · 09h às 22h
 📍 Arena Éssipê — Barra Funda
-🏐 Esportes pela manhã
-🍺 Boteco
-🥁 Pagode
-🎂 Aniversário
 
-Confirme sua presença:
+🗂️ Reunião de fechamento 2026
+🏐 Quadras de areia liberadas
+🍻 Comes e bebes
+🔓 Modo livre até as 22h
+
+Confirme sua presença até 01/11:
 {url}`;
 
 export function buildWhatsAppInviteMessage(url: string) {
   return WHATSAPP_INVITE_MESSAGE.replace("{url}", url);
 }
 
-export function buildReminderMessage(name: string, guestCount: number) {
-  return `Oi, ${name}! Passando para lembrar do Pagode dos Irmãos no dia 27/09. Sua presença está confirmada para ${guestCount} pessoa${
-    guestCount > 1 ? "s" : ""
-  }. Te esperamos!`;
+export function buildReminderMessage(name: string, _guestCount?: number) {
+  void _guestCount;
+  return `Oi, ${name}! Passando para lembrar do Encontro da Governança de Segurança no dia 17/12, na Arena Éssipê. Sua presença está confirmada. Te esperamos!`;
 }

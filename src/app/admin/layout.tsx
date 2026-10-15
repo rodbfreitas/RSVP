@@ -15,10 +15,10 @@ export default async function AdminLayout({
   return (
     <div className="flex-1 flex flex-col paper-texture">
       {user ? (
-        <header className="border-b-[3px] border-ink bg-paper-light">
+        <header className="border-b border-line bg-paper-light">
           <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
             <p className="font-display uppercase text-lg md:text-xl">
-              Pagode dos Irmãos <span className="text-magenta">/admin</span>
+              <span className="font-mono text-green">&gt;_</span> GovSec <span className="text-muted font-mono text-sm md:text-base">/admin</span>
             </p>
             <LogoutButton />
           </div>

@@ -20,7 +20,7 @@ export function Stepper({
       <label className="block text-sm md:text-base font-bold uppercase mb-2">
         {label}
       </label>
-      <div className="flex items-center border-[3px] border-ink w-fit">
+      <div className="flex items-center border border-line w-fit">
         <button
           type="button"
           aria-label="Diminuir"

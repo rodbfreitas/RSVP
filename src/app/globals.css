@@ -1,21 +1,34 @@
 @import "tailwindcss";
 
 /* ============================================================
-   PAGODE DOS IRMÃOS — Design Tokens
-   Lambe-lambe brasileiro + pagode + boteco + esporte de areia
-   Fonte: Design System — Pagode dos Irmãos v1.0
+   ENCONTRO DA GOVERNANÇA DE SEGURANÇA — Design Tokens
+   Identidade "Centro de Operações": SOC + relatório de governança.
+   Os nomes dos tokens foram mantidos do projeto anterior para
+   reaproveitar todos os componentes; os valores mudaram:
+     paper        → fundo (grafite)
+     paper-light  → superfície de cartão/painel
+     ink          → texto principal
+     green        → sinal OK / ação principal
+     magenta      → ciano (informação)
+     orange       → âmbar (atenção / prazo)
+     yellow       → amarelo de alerta
+     purple       → violeta (IA)
    ============================================================ */
 
 :root {
-  /* Paleta */
-  --paper: #e8d9b5;
-  --paper-light: #f2e8cd;
-  --ink: #171511;
-  --green: #129447;
-  --magenta: #d92973;
-  --orange: #f06423;
-  --yellow: #f5b82e;
-  --purple: #653c8f;
+  --paper: #0e1116;
+  --paper-light: #151a22;
+  --surface-2: #1b222c;
+  --ink: #e6edf3;
+  --muted: #9aa7b6;
+  --line: #2e3a49;
+  --line-strong: #46566a;
+
+  --green: #34d399;
+  --magenta: #38bdf8;
+  --orange: #f5a524;
+  --yellow: #facc15;
+  --purple: #a78bfa;
 
   /* Espaçamento base 4px */
   --space-1: 4px;
@@ -30,13 +43,12 @@
   --space-24: 96px;
   --space-30: 120px;
 
-  /* Bordas e sombras */
-  --border-w: 3px;
-  --shadow-hard: 5px 5px 0 var(--ink);
-  --shadow-hard-sm: 3px 3px 0 var(--ink);
-  --shadow-hard-lg: 8px 8px 0 var(--ink);
+  --border-w: 1px;
+  --radius: 6px;
+  --shadow-hard: 0 0 0 1px rgba(52, 211, 153, 0.15), 0 10px 30px -14px rgba(0, 0, 0, 0.8);
+  --shadow-hard-sm: 0 0 0 1px rgba(52, 211, 153, 0.2);
+  --shadow-hard-lg: 0 0 0 1px rgba(52, 211, 153, 0.45), 0 0 28px -6px rgba(52, 211, 153, 0.45);
 
-  /* Motion */
   --motion-fast: 150ms;
   --motion-normal: 250ms;
   --motion-slow: 400ms;
@@ -49,7 +61,11 @@
 @theme inline {
   --color-paper: var(--paper);
   --color-paper-light: var(--paper-light);
+  --color-surface-2: var(--surface-2);
   --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
   --color-green: var(--green);
   --color-magenta: var(--magenta);
   --color-orange: var(--orange);
@@ -59,8 +75,9 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --font-display: "Anton", "Archivo Black", sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --shadow-hard: var(--shadow-hard);
   --shadow-hard-sm: var(--shadow-hard-sm);
@@ -71,21 +88,13 @@
   --animate-pop-in: pop-in var(--motion-normal) var(--ease-poster);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* O evento é diurno/papel — mantemos o fundo creme mesmo em dark mode
-       do sistema, para preservar a identidade do cartaz. */
-    --background: var(--paper);
-    --foreground: var(--ink);
-  }
-}
-
 * {
-  border-color: var(--ink);
+  border-color: var(--line);
 }
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
@@ -94,6 +103,10 @@ body {
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(52, 211, 153, 0.35);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -115,11 +128,17 @@ body {
    ============================================================ */
 
 .font-display {
-  font-family: "Anton", "Archivo Black", sans-serif;
-  letter-spacing: 0.01em;
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-/* Textura de papel envelhecido — pseudo-elemento, nunca imagem pesada */
+.font-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Fundo de "blueprint": grade fina + brilho difuso. Classe mantida com o
+   nome antigo (paper-texture) para não tocar nas páginas. */
 .paper-texture {
   position: relative;
   isolation: isolate;
@@ -131,26 +150,11 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.5;
-  mix-blend-mode: multiply;
   background-image:
-    radial-gradient(
-      circle at 20% 30%,
-      rgba(23, 21, 17, 0.05) 0%,
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 80% 70%,
-      rgba(23, 21, 17, 0.06) 0%,
-      transparent 50%
-    ),
-    repeating-linear-gradient(
-      45deg,
-      rgba(23, 21, 17, 0.02) 0px,
-      rgba(23, 21, 17, 0.02) 1px,
-      transparent 1px,
-      transparent 3px
-    );
+    linear-gradient(rgba(154, 167, 182, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(154, 167, 182, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
 }
 
 .paper-texture::after {
@@ -159,38 +163,95 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.4;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>");
-  background-size: 160px 160px;
+  background:
+    radial-gradient(600px 400px at 85% 0%, rgba(52, 211, 153, 0.1), transparent 70%),
+    radial-gradient(500px 400px at 0% 40%, rgba(56, 189, 248, 0.07), transparent 70%);
 }
 
-/* Recorte/etiqueta com borda gráfica forte */
+/* Painel com cantoneiras — o "card" do centro de operações */
 .poster-card {
-  border: var(--border-w) solid var(--ink);
-  box-shadow: var(--shadow-hard);
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
   background: var(--paper-light);
+  box-shadow: var(--shadow-hard);
+}
+
+.bracket {
+  position: relative;
+}
+.bracket::before,
+.bracket::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  border-color: var(--green);
+}
+.bracket::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+  border-top-left-radius: var(--radius);
+}
+.bracket::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  border-bottom-right-radius: var(--radius);
 }
 
 .stamp {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: var(--border-w) solid var(--ink);
-  transform: rotate(-2deg);
+  border: 1px solid var(--green);
+  border-radius: var(--radius);
+}
+
+/* Cursor de terminal piscando */
+.caret::after {
+  content: "▋";
+  margin-left: 2px;
+  color: var(--green);
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes radar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-node {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes stamp {
   0% {
     opacity: 0;
-    transform: scale(1.4) rotate(-8deg);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(0.95) rotate(-2deg);
+    transform: scale(1.15);
+    filter: blur(4px);
   }
   100% {
     opacity: 1;
-    transform: scale(1) rotate(-2deg);
+    transform: scale(1);
+    filter: blur(0);
   }
 }
 
@@ -216,12 +277,23 @@ body {
   }
 }
 
-/* Safe area para CTA sticky no iPhone */
 .safe-bottom {
   padding-bottom: max(var(--space-4), env(safe-area-inset-bottom));
 }
 
 .focus-ring:focus-visible {
-  outline: 3px solid var(--purple);
+  outline: 2px solid var(--magenta);
   outline-offset: 2px;
+}
+
+/* Inputs e controles nativos no tema escuro */
+input,
+select,
+textarea {
+  color: var(--ink);
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
 }

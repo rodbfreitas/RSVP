@@ -19,29 +19,29 @@ export function ProgressMeter({
   const pct = target > 0 ? Math.min(100, (value / target) * 100) : 0;
   const state =
     value >= target
-      ? { text: "META ATINGIDA! 🎉", color: "bg-green" }
+      ? { text: "META ATINGIDA ✓", color: "bg-green" }
       : pct >= 80
         ? { text: "QUASE LÁ", color: "bg-yellow" }
-        : { text: "BORA CHAMAR MAIS GENTE", color: "bg-orange" };
+        : { text: "ATENÇÃO: CHAMAR MAIS GENTE", color: "bg-orange" };
 
   return (
     <div className={cn("poster-card p-5 md:p-6", className)}>
-      <p className="font-display text-magenta text-sm tracking-widest mb-1">
+      <p className="font-mono text-magenta text-xs md:text-sm tracking-widest mb-1">
         {label}
       </p>
       <div className="flex items-baseline gap-2 mb-3">
         <span
-          className="font-display text-ink"
+          className="font-mono font-bold text-ink"
           style={{ fontSize: "clamp(2.5rem, 11vw, 4rem)" }}
         >
           {value}
         </span>
-        <span className="font-display text-ink/50 text-2xl md:text-3xl">
+        <span className="font-mono text-muted text-2xl md:text-3xl">
           / {target}
         </span>
       </div>
       <div
-        className="h-5 w-full border-[3px] border-ink bg-paper overflow-hidden"
+        className="h-3 w-full rounded-full bg-paper overflow-hidden border border-line"
         role="progressbar"
         aria-valuenow={value}
         aria-valuemin={0}

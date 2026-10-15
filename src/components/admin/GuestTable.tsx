@@ -90,7 +90,7 @@ export function GuestTable({
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Buscar por nome ou telefone"
             aria-label="Buscar convidado"
-            className="w-full min-h-[48px] border-2 border-ink bg-paper-light pl-10 pr-4 focus-ring"
+            className="w-full min-h-[48px] rounded-[6px] border border-line-strong bg-paper-light pl-10 pr-4 focus-ring"
           />
         </div>
         <div className="flex flex-wrap gap-2">
@@ -100,7 +100,7 @@ export function GuestTable({
               type="button"
               onClick={() => setFilter(f.value)}
               className={cn(
-                "border-2 border-ink px-3 py-2 text-xs md:text-sm font-bold uppercase focus-ring",
+                "border-2 border-line px-3 py-2 text-xs md:text-sm font-bold uppercase focus-ring",
                 filter === f.value ? "bg-ink text-paper-light" : "hover:bg-ink/5",
               )}
             >
@@ -118,7 +118,7 @@ export function GuestTable({
       <div className="hidden md:block poster-card overflow-x-auto">
         <table className="w-full text-sm">
           <thead>
-            <tr className="border-b-2 border-ink text-left">
+            <tr className="border-b-2 border-line text-left">
               <th className="p-3">Nome</th>
               <th className="p-3">Pessoas</th>
               <th className="p-3">Status</th>
@@ -130,7 +130,7 @@ export function GuestTable({
           </thead>
           <tbody>
             {filtered.map((g) => (
-              <tr key={g.id} className="border-b border-ink/10">
+              <tr key={g.id} className="border-b border-line/10">
                 <td className="p-3 font-bold">{g.name}</td>
                 <td className="p-3">{g.guest_count}</td>
                 <td className="p-3">

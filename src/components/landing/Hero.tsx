@@ -1,93 +1,104 @@
-import Image from "next/image";
 import Link from "next/link";
 import { EVENT } from "@/lib/constants";
 import { buttonClasses } from "@/components/ui/Button";
-import { Sticker } from "@/components/ui/Sticker";
-import { ChevronDown } from "lucide-react";
+import { HeroArt } from "@/components/landing/HeroArt";
+import { ChevronDown, CalendarDays, Clock, MapPin } from "lucide-react";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-8 md:pt-14 pb-14 md:pb-20 px-5 md:px-8">
-      <div className="max-w-[1200px] mx-auto grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+      <div className="max-w-[1200px] mx-auto grid lg:grid-cols-[1.15fr_1fr] gap-6 md:gap-12 items-center">
         <div className="order-2 lg:order-1 text-center lg:text-left">
-          <p className="font-display text-magenta text-sm md:text-base tracking-[0.2em] mb-2">
-            ★ SAVE THE DATE ★
-          </p>
-          <h1 className="font-display uppercase leading-[0.9] mb-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-line bg-paper-light/80 px-3 py-1 mb-5 font-mono text-[11px] md:text-xs text-muted">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-60 animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green" />
+            </span>
+            {EVENT.code} · STATUS: CONVOCAÇÃO ABERTA
+          </div>
+
+          <h1 className="font-display leading-[0.95] mb-4">
             <span
-              className="block text-green"
-              style={{ fontSize: "clamp(3.2rem, 15vw, 7rem)" }}
+              className="block text-muted font-medium"
+              style={{ fontSize: "clamp(1.4rem, 6vw, 2.4rem)" }}
             >
-              PAGODE
+              Encontro da
             </span>
             <span
-              className="block"
-              style={{ fontSize: "clamp(2.2rem, 10vw, 5rem)" }}
+              className="block uppercase"
+              style={{ fontSize: "clamp(2.5rem, 12vw, 5.2rem)" }}
             >
-              <span className="text-magenta">DOS </span>
-              <span className="text-orange">IRMÃOS</span>
+              Governança
+            </span>
+            <span
+              className="block uppercase text-green"
+              style={{ fontSize: "clamp(1.9rem, 9vw, 3.9rem)" }}
+            >
+              de Segurança
             </span>
           </h1>
 
-          <div className="inline-block bg-ink text-paper-light font-display px-4 py-2 mb-5 -rotate-1 text-lg md:text-2xl">
-            RODRIGO 43 <span className="text-yellow">&amp;</span> GABRIEL 30
-          </div>
+          <p className="font-mono text-sm md:text-base text-muted mb-6 caret">
+            &gt; fechamento_2026 --com-quadra --com-resenha
+          </p>
 
-          <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
-            <Sticker color="magenta" rotate={-2}>
-              {EVENT.dateLabel}
-            </Sticker>
-            <Sticker color="green" rotate={1}>
-              {EVENT.venue}
-            </Sticker>
-            <Sticker color="orange" rotate={-1}>
-              {EVENT.neighborhood}
-            </Sticker>
-          </div>
+          <dl className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-7 text-left max-w-xl mx-auto lg:mx-0">
+            <div className="poster-card bracket px-4 py-3">
+              <dt className="flex items-center gap-1.5 font-mono text-[11px] text-muted uppercase">
+                <CalendarDays size={13} aria-hidden /> Data
+              </dt>
+              <dd className="font-mono font-bold text-lg">{EVENT.dateLabel}</dd>
+            </div>
+            <div className="poster-card px-4 py-3">
+              <dt className="flex items-center gap-1.5 font-mono text-[11px] text-muted uppercase">
+                <Clock size={13} aria-hidden /> Horário
+              </dt>
+              <dd className="font-mono font-bold text-lg">{EVENT.timeLabel}</dd>
+            </div>
+            <div className="poster-card px-4 py-3 col-span-2 sm:col-span-1">
+              <dt className="flex items-center gap-1.5 font-mono text-[11px] text-muted uppercase">
+                <MapPin size={13} aria-hidden /> Local
+              </dt>
+              <dd className="font-bold leading-tight">
+                {EVENT.venue}
+                <span className="block text-xs font-normal text-muted">
+                  {EVENT.neighborhood}
+                </span>
+              </dd>
+            </div>
+          </dl>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
             <Link
               href="/rsvp"
-              className={buttonClasses({ variant: "primary", color: "magenta" })}
+              className={buttonClasses({ variant: "primary", color: "green" })}
             >
-              CONFIRMAR PRESENÇA ✅
+              CONFIRMAR PRESENÇA →
             </Link>
             <a
               href="#programacao"
               className={buttonClasses({ variant: "secondary" })}
             >
-              VER PROGRAMAÇÃO
+              VER ROADMAP DO DIA
             </a>
           </div>
 
-          <p className="text-xs md:text-sm text-ink/60 mt-3">
-            Confirme, de preferência, até{" "}
-            <strong className="text-ink">{EVENT.rsvpDeadlineLabel}</strong>.
+          <p className="font-mono text-xs md:text-sm text-orange mt-4">
+            ⚠ DEADLINE DE COMPLIANCE: confirme até {EVENT.rsvpDeadlineLabel}
           </p>
         </div>
 
         <div className="order-1 lg:order-2 flex justify-center">
-          <div className="relative max-w-[340px] md:max-w-[420px] w-full rotate-1">
-            <div className="absolute inset-0 translate-x-3 translate-y-3 bg-ink -z-10" />
-            <Image
-              src="/assets/posters/save-the-date.webp"
-              alt={`Save the date — Pagode dos Irmãos, ${EVENT.hosts}, ${EVENT.dateLabel}, ${EVENT.venue} (${EVENT.neighborhood})`}
-              width={900}
-              height={1600}
-              priority
-              className="w-full h-auto border-[3px] border-ink"
-              sizes="(max-width: 768px) 90vw, 420px"
-            />
-          </div>
+          <HeroArt className="w-full max-w-[280px] md:max-w-[440px] h-auto" />
         </div>
       </div>
 
       <a
         href="#programacao"
-        className="hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 flex-col items-center gap-1 text-ink/50 hover:text-ink transition-colors"
+        className="hidden md:flex absolute bottom-4 left-1/2 -translate-x-1/2 flex-col items-center gap-1 text-muted hover:text-ink transition-colors"
         aria-label="Ver programação"
       >
-        <span className="text-xs uppercase tracking-widest">role pra baixo</span>
+        <span className="font-mono text-xs uppercase tracking-widest">scroll</span>
         <ChevronDown size={20} aria-hidden />
       </a>
     </section>

@@ -5,8 +5,8 @@ const colorClasses = {
   ink: "bg-ink text-paper-light",
   magenta: "bg-magenta text-paper-light",
   green: "bg-green text-paper-light",
-  orange: "bg-orange text-ink",
-  yellow: "bg-yellow text-ink",
+  orange: "bg-orange text-paper",
+  yellow: "bg-yellow text-paper",
   purple: "bg-purple text-paper-light",
   paper: "bg-paper-light text-ink",
 } as const;
@@ -22,13 +22,13 @@ interface StickerProps {
 export function Sticker({
   children,
   color = "ink",
-  rotate = -2,
+  rotate = 0,
   className,
 }: StickerProps) {
   return (
     <span
       className={cn(
-        "inline-block border-[3px] border-ink px-3 py-1 text-sm md:text-base font-bold uppercase tracking-wide",
+        "inline-block border border-line rounded-[4px] px-3 py-1 font-mono text-xs md:text-sm font-medium uppercase tracking-wide",
         colorClasses[color],
         className,
       )}

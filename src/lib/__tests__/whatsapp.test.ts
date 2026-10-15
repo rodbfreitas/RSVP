@@ -19,13 +19,14 @@ test("buildWaShareLink inclui o telefone normalizado quando fornecido", () => {
 });
 
 test("buildWhatsAppInviteMessage substitui o placeholder da URL", () => {
-  const msg = buildWhatsAppInviteMessage("https://pagodedosirmaos.com.br");
-  assert.match(msg, /PAGODE DOS IRMÃOS/);
-  assert.match(msg, /https:\/\/pagodedosirmaos\.com\.br/);
+  const msg = buildWhatsAppInviteMessage("https://encontro-governanca.vercel.app");
+  assert.match(msg, /ENCONTRO DA GOVERNANÇA DE SEGURANÇA/);
+  assert.match(msg, /https:\/\/encontro-governanca\.vercel\.app/);
   assert.doesNotMatch(msg, /\{url\}/);
 });
 
-test("buildReminderMessage pluraliza corretamente", () => {
-  assert.match(buildReminderMessage("Ana", 1), /1 pessoa\./);
-  assert.match(buildReminderMessage("Ana", 3), /3 pessoas\./);
+test("buildReminderMessage cita o nome e a data do evento", () => {
+  const msg = buildReminderMessage("Ana");
+  assert.match(msg, /Oi, Ana!/);
+  assert.match(msg, /17\/12/);
 });

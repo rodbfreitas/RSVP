@@ -61,7 +61,7 @@ export default function AdminLoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full min-h-[52px] border-2 border-ink bg-paper-light px-4 text-base focus-ring"
+              className="w-full min-h-[52px] rounded-[6px] border border-line-strong bg-paper-light px-4 text-base focus-ring"
             />
           </div>
           <div>
@@ -75,7 +75,7 @@ export default function AdminLoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full min-h-[52px] border-2 border-ink bg-paper-light px-4 text-base focus-ring"
+              className="w-full min-h-[52px] rounded-[6px] border border-line-strong bg-paper-light px-4 text-base focus-ring"
             />
           </div>
 

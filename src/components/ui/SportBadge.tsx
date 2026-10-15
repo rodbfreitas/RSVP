@@ -12,8 +12,8 @@ export function SportBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center border-[3px] border-ink px-3 py-1.5 text-sm md:text-base font-bold uppercase transition-colors",
-        selected ? "bg-green text-paper-light" : "bg-paper-light text-ink",
+        "inline-flex items-center rounded-[4px] border border-line px-3 py-1.5 text-sm md:text-base font-bold uppercase transition-colors",
+        selected ? "bg-green/15 text-green border-green" : "bg-paper-light text-ink",
         className,
       )}
     >

@@ -65,7 +65,7 @@ export function AdminDashboard({
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `pagode-dos-irmaos-convidados-${new Date()
+    a.download = `encontro-govsec-convidados-${new Date()
       .toISOString()
       .slice(0, 10)}.csv`;
     document.body.appendChild(a);
@@ -78,16 +78,16 @@ export function AdminDashboard({
     <div className="flex flex-col gap-6 md:gap-8">
       <div>
         <h1 className="font-display uppercase text-3xl md:text-4xl mb-1">
-          Vamos conseguir as 100 pessoas?
+          SLA de presença: vamos bater as {EVENT.targetGuests}?
         </h1>
-        <p className="text-ink/70">Pagode dos Irmãos · {EVENT.dateLabel}</p>
+        <p className="text-muted font-mono text-sm">{EVENT.code} · {EVENT.name} · {EVENT.dateLabel}</p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
         <ProgressMeter
           value={stats.confirmedGuests}
           target={EVENT.targetGuests}
-          label="META ARENA"
+          label="META DA ARENA"
           sublabel={`meta recomendada: ${EVENT.recommendedRsvp}`}
         />
         <ProgressMeter
@@ -117,7 +117,7 @@ export function AdminDashboard({
           href={buildWaShareLink(buildWhatsAppInviteMessage(siteUrl))}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 font-display uppercase tracking-wide border-[3px] border-ink min-h-[56px] px-6 text-lg bg-transparent hover:bg-ink/5 focus-ring"
+          className="inline-flex items-center gap-2 font-display uppercase tracking-wide border border-line min-h-[56px] px-6 text-lg bg-transparent hover:bg-ink/5 focus-ring"
         >
           <Share2 size={18} aria-hidden />
           COMPARTILHAR NO WHATSAPP

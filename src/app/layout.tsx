@@ -2,50 +2,53 @@ import type { Metadata, Viewport } from "next";
 // Fontes hospedadas localmente via @fontsource (evita dependência de rede
 // para fonts.googleapis.com em runtime/build — mais rápido e mais confiável
 // que next/font/google, ver PRD §27 Performance).
-import "@fontsource/anton/400.css";
+import "@fontsource/space-grotesk/500.css";
+import "@fontsource/space-grotesk/700.css";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/700.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
-import "@fontsource/inter/800.css";
 import "./globals.css";
 
-const siteUrl = "https://pagodedosirmaos.com.br";
+const siteUrl = "https://encontro-governanca.vercel.app";
+const title = "Encontro da Governança de Segurança — 17.12.2026";
+const description =
+  "17.12.2026 · 09h às 22h · Arena Éssipê, Barra Funda/SP. Reunião de fechamento 2026, quadras de areia, comes e bebes. Confirme sua presença até 01/11.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Pagode dos Irmãos — Rodrigo 43 & Gabriel 30",
-  description:
-    "27.09.2026 · Arena Éssipê, Barra Funda/SP. Esporte de areia pela manhã, boteco e pagode à tarde. Confirme sua presença!",
+  title,
+  description,
   openGraph: {
-    title: "Pagode dos Irmãos — Rodrigo 43 & Gabriel 30",
-    description:
-      "27.09.2026 · Arena Éssipê, Barra Funda/SP. Esporte de areia, boteco e pagode. Confirme sua presença!",
+    title,
+    description,
     url: siteUrl,
-    siteName: "Pagode dos Irmãos",
+    siteName: "Encontro da Governança de Segurança",
     locale: "pt_BR",
     type: "website",
     images: [
       {
-        url: "/assets/posters/save-the-date.jpg",
-        width: 1080,
-        height: 1920,
-        alt: "Save the date — Pagode dos Irmãos, 27.09.2026, Arena Éssipê",
+        url: "/assets/posters/og-govsec.png",
+        width: 1200,
+        height: 630,
+        alt: "Encontro da Governança de Segurança — 17.12.2026, Arena Éssipê",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pagode dos Irmãos — Rodrigo 43 & Gabriel 30",
-    description: "27.09.2026 · Arena Éssipê, Barra Funda/SP.",
-    images: ["/assets/posters/save-the-date.jpg"],
+    title,
+    description,
+    images: ["/assets/posters/og-govsec.png"],
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#e8d9b5",
+  themeColor: "#0e1116",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

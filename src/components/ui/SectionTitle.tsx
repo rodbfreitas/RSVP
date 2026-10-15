@@ -24,8 +24,8 @@ export function SectionTitle({
   return (
     <div className={cn("mb-8 md:mb-12", className)}>
       {eyebrow ? (
-        <p className="font-display text-magenta text-sm md:text-base mb-1 tracking-widest">
-          {eyebrow}
+        <p className="font-mono text-green text-xs md:text-sm mb-2 tracking-widest">
+          {"// "}{eyebrow}
         </p>
       ) : null}
       <h2

@@ -13,7 +13,7 @@ const CONFIG: Record<
   },
   maybe: {
     label: "TALVEZ",
-    classes: "bg-yellow text-ink",
+    classes: "bg-yellow text-paper",
     Icon: HelpCircle,
   },
   declined: {
@@ -28,7 +28,7 @@ export function StatusBadge({ status }: { status: RsvpStatus }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 border-[3px] border-ink px-2.5 py-1 text-xs md:text-sm font-bold uppercase",
+        "inline-flex items-center gap-1.5 border border-line px-2.5 py-1 text-xs md:text-sm font-bold uppercase",
         classes,
       )}
     >

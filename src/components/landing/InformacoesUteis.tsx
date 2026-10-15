@@ -2,7 +2,6 @@ import { SectionTitle } from "@/components/ui/SectionTitle";
 import { EVENT, INFO_UTEIS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import {
-  Baby,
   CloudRain,
   ParkingCircle,
   Shirt,
@@ -20,13 +19,13 @@ const ICONS: Record<string, ComponentType<{ size?: number; className?: string; "
   utensils: UtensilsCrossed,
   shower: ShowerHead,
   parking: ParkingCircle,
-  baby: Baby,
   shirt: Shirt,
   rain: CloudRain,
 };
 
 const textColor: Record<string, string> = {
   green: "text-green",
+  yellow: "text-yellow",
   orange: "text-orange",
   magenta: "text-magenta",
   purple: "text-purple",
@@ -35,7 +34,7 @@ const textColor: Record<string, string> = {
 export function InformacoesUteis() {
   return (
     <section className="relative py-16 md:py-24 px-5 md:px-8 max-w-[1200px] mx-auto">
-      <SectionTitle eyebrow="BOM SABER" title="INFORMAÇÕES ÚTEIS" color="purple" className="mb-6 md:mb-10" />
+      <SectionTitle eyebrow="FAQ" title="BASE DE CONHECIMENTO" color="ink" className="mb-6 md:mb-10" />
 
       <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
         {INFO_UTEIS.map((item) => {
@@ -46,18 +45,18 @@ export function InformacoesUteis() {
                 <Icon size={22} className={cn("flex-none", textColor[item.color])} aria-hidden />
                 <h3
                   className={cn(
-                    "font-display uppercase text-lg md:text-xl",
+                    "font-display uppercase text-base md:text-lg",
                     textColor[item.color],
                   )}
                 >
                   {item.title}
                 </h3>
               </div>
-              <p className="text-sm md:text-base text-ink/80">{item.description}</p>
+              <p className="text-sm md:text-base text-muted">{item.description}</p>
               {"href" in item && item.href ? (
                 <Link
                   href={item.href}
-                  className="inline-flex items-center gap-1.5 text-sm md:text-base font-bold text-ink underline underline-offset-4 decoration-2 mt-1"
+                  className="inline-flex items-center gap-1.5 text-sm md:text-base font-bold text-magenta underline underline-offset-4 decoration-1 mt-1"
                 >
                   <ArrowRight size={16} aria-hidden />
                   {item.linkLabel}
@@ -67,7 +66,7 @@ export function InformacoesUteis() {
                   href={EVENT[item.linkUrlKey as keyof typeof EVENT] as string}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm md:text-base font-bold text-ink underline underline-offset-4 decoration-2 mt-1"
+                  className="inline-flex items-center gap-1.5 text-sm md:text-base font-bold text-magenta underline underline-offset-4 decoration-1 mt-1"
                 >
                   <MapPin size={16} aria-hidden />
                   {item.linkLabel}

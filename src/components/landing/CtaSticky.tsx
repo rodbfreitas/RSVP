@@ -31,11 +31,11 @@ export function CtaSticky() {
         href="/rsvp"
         className={buttonClasses({
           variant: "primary",
-          color: "magenta",
+          color: "green",
           fullWidth: true,
         })}
       >
-        CONFIRMAR PRESENÇA ✅
+        CONFIRMAR PRESENÇA →
       </Link>
     </div>
   );

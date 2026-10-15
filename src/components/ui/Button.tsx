@@ -16,20 +16,20 @@ const colorClasses: Record<Color, string> = {
   ink: "bg-ink text-paper-light",
   magenta: "bg-magenta text-paper-light",
   green: "bg-green text-paper-light",
-  orange: "bg-orange text-ink",
+  orange: "bg-orange text-paper",
   purple: "bg-purple text-paper-light",
   paper: "bg-paper-light text-ink",
 };
 
 const BASE =
-  "font-display uppercase tracking-wide inline-flex items-center justify-center gap-2 border-[3px] border-ink min-h-[56px] md:min-h-[64px] px-6 text-lg md:text-xl transition-all duration-150 ease-[cubic-bezier(.2,.8,.2,1)] focus-ring disabled:opacity-50 disabled:pointer-events-none select-none";
+  "font-display uppercase tracking-wide inline-flex items-center justify-center gap-2 border border-line rounded-[6px] min-h-[56px] md:min-h-[64px] px-6 text-base md:text-lg transition-all duration-150 ease-[cubic-bezier(.2,.8,.2,1)] focus-ring disabled:opacity-50 disabled:pointer-events-none select-none";
 
 const VARIANT_CLASSES: Record<Variant, string> = {
   primary:
-    "shadow-hard hover:shadow-hard-lg active:shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0 hover:-rotate-1",
+    "shadow-hard hover:shadow-hard-lg active:shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0",
   secondary:
     "bg-transparent text-ink shadow-hard hover:shadow-hard-lg active:shadow-hard-sm hover:-translate-x-0.5 hover:-translate-y-0.5",
-  outline: "bg-transparent text-ink border-ink hover:bg-ink/5",
+  outline: "bg-transparent text-ink border-line hover:bg-ink/5",
   ghost: "border-transparent shadow-none hover:bg-ink/5",
 };
 

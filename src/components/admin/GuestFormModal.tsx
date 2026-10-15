@@ -74,7 +74,7 @@ export function GuestFormModal({
       aria-modal="true"
       aria-labelledby="guest-modal-title"
     >
-      <div className="bg-paper w-full md:max-w-lg md:border-[3px] md:border-ink md:shadow-hard-lg max-h-[90vh] overflow-y-auto p-6 md:p-8">
+      <div className="bg-paper w-full md:max-w-lg md:border md:border-line md:shadow-hard-lg max-h-[90vh] overflow-y-auto p-6 md:p-8">
         <div className="flex items-center justify-between mb-6">
           <h2 id="guest-modal-title" className="font-display uppercase text-2xl">
             {guest ? "Editar convidado" : "Adicionar convidado"}
@@ -98,7 +98,7 @@ export function GuestFormModal({
               id="g-name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full min-h-[52px] border-2 border-ink bg-paper-light px-4 focus-ring"
+              className="w-full min-h-[52px] rounded-[6px] border border-line-strong bg-paper-light px-4 focus-ring"
             />
           </div>
 
@@ -111,7 +111,7 @@ export function GuestFormModal({
               value={phone}
               onChange={(e) => setPhone(maskPhone(e.target.value))}
               placeholder="(11) 99999-9999"
-              className="w-full min-h-[52px] border-2 border-ink bg-paper-light px-4 focus-ring"
+              className="w-full min-h-[52px] rounded-[6px] border border-line-strong bg-paper-light px-4 focus-ring"
             />
           </div>
 

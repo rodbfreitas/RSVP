@@ -13,16 +13,16 @@ export function buildIcsContent(): string {
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Pagode dos Irmaos//RSVP//PT-BR",
+    "PRODID:-//Encontro GovSec//RSVP//PT-BR",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",
-    `UID:${EVENT.slug}@pagodedosirmaos.com.br`,
+    `UID:${EVENT.slug}@encontro-governanca.vercel.app`,
     `DTSTAMP:${toIcsDate(now)}`,
     `DTSTART:${toIcsDate(start)}`,
     `DTEND:${toIcsDate(end)}`,
     `SUMMARY:${EVENT.name}`,
-    `DESCRIPTION:${EVENT.hosts}\\n09h esportes (opcional)\\, 13h boteco\\, 14h pagode\\, 15h30 parabéns\\, 17h saideira e encerramento.\\nMais detalhes em pagodedosirmaos.com.br`,
+    `DESCRIPTION:${EVENT.hosts}\\n09h reunião de fechamento 2026\\, 11h–16h quadras liberadas\\, 12h comes e bebes\\, 15h30 encerramento\\, até 22h modo livre.\\nMais detalhes em encontro-governanca.vercel.app`,
     `LOCATION:${EVENT.venue} — ${EVENT.address}`,
     "END:VEVENT",
     "END:VCALENDAR",
@@ -33,13 +33,14 @@ export function buildIcsContent(): string {
 
 /** Link do Google Calendar para adicionar o evento sem baixar arquivo. */
 export function buildGoogleCalendarLink(): string {
-  const start = EVENT.dateISO.replace(/-/g, "") + "T120000Z";
-  const end = EVENT.dateISO.replace(/-/g, "") + "T200000Z";
+  const fmt = (d: Date) => toIcsDate(d);
+  const start = fmt(new Date(`${EVENT.dateISO}T${EVENT.startTime}:00-03:00`));
+  const end = fmt(new Date(`${EVENT.dateISO}T${EVENT.endTime}:00-03:00`));
   const params = new URLSearchParams({
     action: "TEMPLATE",
     text: EVENT.name,
     dates: `${start}/${end}`,
-    details: `${EVENT.hosts}\n09h esportes (opcional), 13h boteco, 14h pagode, 15h30 parabéns, 17h saideira e encerramento.\npagodedosirmaos.com.br`,
+    details: `${EVENT.hosts}\n09h reunião de fechamento 2026, 11h–16h quadras liberadas, 12h comes e bebes, 15h30 encerramento, até 22h modo livre.\nencontro-governanca.vercel.app`,
     location: `${EVENT.venue}, ${EVENT.address}`,
   });
   return `https://calendar.google.com/calendar/render?${params.toString()}`;

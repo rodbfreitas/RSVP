@@ -12,9 +12,10 @@ import { EVENT, SCHEDULE, buildWhatsAppInviteMessage } from "@/lib/constants";
 import type { RsvpWithSports } from "@/lib/types";
 
 const DAY_HIGHLIGHTS = [
-  { emoji: "🕘", text: `Esportes a partir das ${SCHEDULE[0].time.replace("H", "h")} (opcional)` },
-  { emoji: "🍻", text: `Boteco a partir das ${SCHEDULE[1].time.replace("H", "h")}` },
-  { emoji: "🎶", text: `Pagode às ${SCHEDULE[2].time.replace("H", "h")}` },
+  { emoji: "🗂️", text: `${SCHEDULE[0].time.replace("H", "h")} · Reunião de fechamento 2026` },
+  { emoji: "🏐", text: `${SCHEDULE[1].time.replace("H", "h")} às ${SCHEDULE[1].until?.replace("H", "h")} · Quadras liberadas` },
+  { emoji: "🍻", text: `${SCHEDULE[2].time.replace("H", "h")} · Comes e bebes` },
+  { emoji: "🔓", text: `Bar aberto até as 22h` },
 ];
 
 export function RsvpConfirmation({
@@ -30,7 +31,7 @@ export function RsvpConfirmation({
     return (
       <div className="text-center animate-pop-in">
         <h1 className="font-display text-3xl md:text-4xl uppercase mb-3">
-          Que pena, {rsvp.name.split(" ")[0]}!
+          Registrado, {rsvp.name.split(" ")[0]}.
         </h1>
         <p className="text-ink/70 mb-8">
           Anotamos que você não vai poder vir dessa vez. Se mudar de ideia,
@@ -51,20 +52,20 @@ export function RsvpConfirmation({
     <div className="text-center animate-pop-in">
       <div className="flex justify-center mb-6">
         <ConfirmStamp
-          label={rsvp.status === "confirmed" ? "TÁ CONFIRMADO!" : "ANOTADO!"}
+          label={rsvp.status === "confirmed" ? "ACESSO CONCEDIDO" : "EM ANÁLISE"}
         />
       </div>
 
       <p className="text-lg md:text-xl mb-1">
-        {wasUpdate ? "Atualizamos sua confirmação," : "Te esperamos,"}{" "}
+        {wasUpdate ? "Registro atualizado," : "Te esperamos,"}{" "}
         <strong>{rsvp.name.split(" ")[0]}</strong>!
       </p>
       <p className="text-ink/70 mb-8">
-        {rsvp.status === "confirmed" ? "Agora é só chegar." : "Vaga guardada — confirma quando puder!"}
+        {rsvp.status === "confirmed" ? "Agora é só chegar." : "Vaga reservada. Confirma assim que puder!"}
       </p>
 
       <div className="poster-card p-6 mb-8 text-left inline-block w-full max-w-sm mx-auto">
-        <p className="font-display text-2xl text-magenta mb-1">
+        <p className="font-mono text-2xl text-green mb-1">
           {EVENT.dateLabel}
         </p>
         <p className="text-base">{EVENT.venue}</p>
@@ -77,14 +78,9 @@ export function RsvpConfirmation({
           ))}
         </div>
         <div className="h-px bg-ink/15 my-3" />
-        <p className="text-sm">
-          <strong>{rsvp.guest_count}</strong> pessoa
-          {rsvp.guest_count > 1 ? "s" : ""} confirmada
-          {rsvp.guest_count > 1 ? "s" : ""}
-        </p>
         {rsvp.sports_status !== "no" ? (
           <p className="text-sm">
-            🏐 {rsvp.sports_count} no esporte
+            🏐 Nas quadras
             {rsvp.sports.length > 0 ? ` — ${rsvp.sports.join(", ")}` : ""}
           </p>
         ) : null}

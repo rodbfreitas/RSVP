@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Quem vai estar lá — Pagode dos Irmãos",
+  title: "Quem vai estar lá — Encontro da Governança de Segurança",
   description:
-    "Food trucks e quiosques confirmados no dia do Pagode dos Irmãos, com cardápio resumido e o PDF completo de cada um.",
+    "Food trucks e quiosques confirmados no dia do Encontro da Governança de Segurança, com cardápio resumido e o PDF completo de cada um.",
 };
 
 const textColor: Record<string, string> = {
