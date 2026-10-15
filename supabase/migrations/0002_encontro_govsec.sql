@@ -1,11 +1,14 @@
--- Reaproveita o projeto para o Encontro da Governança de Segurança (17/12/2026).
--- O evento anterior (Pagode dos Irmãos) era pontual; o histórico não é mantido.
-delete from public.rsvp_sports;
-delete from public.rsvps;
-
-update public.events
-set name = 'Encontro da Governança de Segurança',
-    slug = 'encontro-governanca-seguranca-2026',
-    event_date = '2026-12-17',
-    updated_at = now()
-where slug = 'pagode-dos-irmaos-2026';
+-- Encontro da Governança de Segurança (17/12/2026).
+-- Novo evento na mesma base: os RSVPs do Pagode dos Irmãos continuam no
+-- banco, mas ficam fora do site e do painel, que filtram pelo slug do evento.
+insert into public.events (name, slug, event_date, venue, address, maps_url, target_guests)
+values (
+  'Encontro da Governança de Segurança',
+  'encontro-governanca-seguranca-2026',
+  '2026-12-17',
+  'Arena Éssipê',
+  'Rua Inhaúma, 71 — Barra Funda, São Paulo/SP',
+  'https://www.google.com/maps/search/?api=1&query=Arena+Essipe+Rua+Inhauma+71+Barra+Funda+Sao+Paulo',
+  100
+)
+on conflict (slug) do nothing;
