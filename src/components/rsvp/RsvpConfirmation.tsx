@@ -12,10 +12,10 @@ import { EVENT, SCHEDULE, buildWhatsAppInviteMessage } from "@/lib/constants";
 import type { RsvpWithSports } from "@/lib/types";
 
 const DAY_HIGHLIGHTS = [
-  { emoji: "🗂️", text: `${SCHEDULE[0].time.replace("H", "h")} · Reunião de fechamento 2026` },
-  { emoji: "🏐", text: `${SCHEDULE[1].time.replace("H", "h")} às ${SCHEDULE[1].until?.replace("H", "h")} · Quadras liberadas` },
-  { emoji: "🍻", text: `${SCHEDULE[2].time.replace("H", "h")} · Comes e bebes` },
-  { emoji: "🔓", text: `Bar aberto até as 22h` },
+  { text: `${SCHEDULE[0].time} · Reunião de fechamento 2026` },
+  { text: `${SCHEDULE[1].time} às ${SCHEDULE[1].until} · Quadras liberadas` },
+  { text: `${SCHEDULE[2].time} · Comes e bebes` },
+  { text: `Bar aberto até as 22h` },
 ];
 
 export function RsvpConfirmation({
@@ -65,7 +65,7 @@ export function RsvpConfirmation({
       </p>
 
       <div className="poster-card p-6 mb-8 text-left inline-block w-full max-w-sm mx-auto">
-        <p className="font-mono text-2xl text-green mb-1">
+        <p className="text-2xl font-bold tnum mb-1">
           {EVENT.dateLabel}
         </p>
         <p className="text-base">{EVENT.venue}</p>
@@ -73,14 +73,14 @@ export function RsvpConfirmation({
         <div className="flex flex-col gap-0.5 text-sm text-ink/70 mb-1">
           {DAY_HIGHLIGHTS.map((h) => (
             <p key={h.text}>
-              {h.emoji} {h.text}
+              {h.text}
             </p>
           ))}
         </div>
         <div className="h-px bg-ink/15 my-3" />
         {rsvp.sports_status !== "no" ? (
           <p className="text-sm">
-            🏐 Nas quadras
+            Nas quadras
             {rsvp.sports.length > 0 ? ` — ${rsvp.sports.join(", ")}` : ""}
           </p>
         ) : null}

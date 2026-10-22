@@ -124,7 +124,7 @@ export function RsvpForm({ onSuccess, initial }: RsvpFormProps) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Seu nome completo"
-          className="w-full min-h-[56px] rounded-[6px] border border-line-strong bg-paper-light px-4 text-base md:text-lg focus-ring"
+          className="w-full min-h-[56px] border-2 border-ink bg-white px-4 text-base md:text-lg focus-ring"
           required
         />
       </div>
@@ -142,7 +142,7 @@ export function RsvpForm({ onSuccess, initial }: RsvpFormProps) {
           value={phone}
           onChange={(e) => setPhone(maskPhone(e.target.value))}
           placeholder="(11) 99999-9999"
-          className="w-full min-h-[56px] rounded-[6px] border border-line-strong bg-paper-light px-4 text-base md:text-lg focus-ring"
+          className="w-full min-h-[56px] border-2 border-ink bg-white px-4 text-base md:text-lg focus-ring"
           required
         />
         {checking ? (
@@ -208,7 +208,7 @@ export function RsvpForm({ onSuccess, initial }: RsvpFormProps) {
       ) : null}
 
       {error ? (
-        <p role="alert" className="text-sm font-bold text-orange">
+        <p role="alert" className="text-sm font-bold text-risk-crit">
           ERRO: {error}
         </p>
       ) : null}

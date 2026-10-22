@@ -30,7 +30,7 @@ export function CalendarButton({ className }: { className?: string }) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "encontro-govsec.ics";
+    a.download = "encontro-grc.ics";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

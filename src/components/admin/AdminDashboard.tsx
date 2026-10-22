@@ -65,7 +65,7 @@ export function AdminDashboard({
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `encontro-govsec-convidados-${new Date()
+    a.download = `encontro-grc-convidados-${new Date()
       .toISOString()
       .slice(0, 10)}.csv`;
     document.body.appendChild(a);

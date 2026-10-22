@@ -1,58 +1,49 @@
 @import "tailwindcss";
 
 /* ============================================================
-   ENCONTRO DA GOVERNANÇA DE SEGURANÇA — Design Tokens
-   Identidade "Centro de Operações": SOC + relatório de governança.
-   Os nomes dos tokens foram mantidos do projeto anterior para
-   reaproveitar todos os componentes; os valores mudaram:
-     paper        → fundo (grafite)
-     paper-light  → superfície de cartão/painel
-     ink          → texto principal
-     green        → sinal OK / ação principal
-     magenta      → ciano (informação)
-     orange       → âmbar (atenção / prazo)
-     yellow       → amarelo de alerta
-     purple       → violeta (IA)
+   ENCONTRO GRC — Ger. Sr. Governança, Riscos e Continuidade
+   Direção "Colour chapters": cada capítulo do dia é um campo de cor
+   cheia. As cores vêm da matriz de risco (baixo → crítico) e o dia
+   "escala" de verde até o vermelho, fechando no preto da noite.
+   Uma família tipográfica (Jost), cinco tamanhos, sem sombras,
+   sem gradientes, sem linhas finas.
    ============================================================ */
 
 :root {
-  --paper: #0e1116;
-  --paper-light: #151a22;
-  --surface-2: #1b222c;
-  --ink: #e6edf3;
-  --muted: #9aa7b6;
-  --line: #2e3a49;
-  --line-strong: #46566a;
+  /* Base */
+  --paper: #f3f3f1;
+  --paper-light: #ffffff;
+  --surface-2: #e6e6e2;
+  --ink: #0b0b0b;
+  --muted: #3d3d3a;
+  --line: #d8d6ce;
+  --line-strong: #b9b6ab;
 
-  --green: #34d399;
-  --magenta: #38bdf8;
-  --orange: #f5a524;
-  --yellow: #facc15;
-  --purple: #a78bfa;
+  /* Matriz de risco — campos de cor */
+  --risk-low: #2fbf71; /* baixo     → abertura */
+  --risk-mod: #f7dd47; /* moderado  → pauta */
+  --risk-high: #ff7a1a; /* alto      → quadras */
+  --risk-crit: #d61f26; /* crítico   → confirmação */
+  --night: #0b0b0b; /* 22h       → rodapé */
 
-  /* Espaçamento base 4px */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
-  --space-30: 120px;
+  /* Aliases usados pelo restante do app (RSVP, admin) */
+  --green: var(--risk-low);
+  --yellow: var(--risk-mod);
+  --orange: var(--risk-high);
+  --magenta: var(--risk-crit);
+  --purple: #1423b8;
 
-  --border-w: 1px;
-  --radius: 6px;
-  --shadow-hard: 0 0 0 1px rgba(52, 211, 153, 0.15), 0 10px 30px -14px rgba(0, 0, 0, 0.8);
-  --shadow-hard-sm: 0 0 0 1px rgba(52, 211, 153, 0.2);
-  --shadow-hard-lg: 0 0 0 1px rgba(52, 211, 153, 0.45), 0 0 28px -6px rgba(52, 211, 153, 0.45);
+  --radius: 0px;
+  --page-margin: clamp(16px, 2.2vw, 32px);
 
-  --motion-fast: 150ms;
-  --motion-normal: 250ms;
-  --motion-slow: 400ms;
-  --ease-poster: cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* Escala tipográfica — cinco degraus */
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2.25rem, 1.3rem + 4vw, 5.25rem);
+  --step-display: clamp(3.6rem, 15vw, 9.4rem);
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -71,21 +62,27 @@
   --color-orange: var(--orange);
   --color-yellow: var(--yellow);
   --color-purple: var(--purple);
+  --color-night: var(--night);
+  --color-risk-low: var(--risk-low);
+  --color-risk-mod: var(--risk-mod);
+  --color-risk-high: var(--risk-high);
+  --color-risk-crit: var(--risk-crit);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-display: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Jost", ui-sans-serif, system-ui, sans-serif; /* taste-skill-ignore: alias para Jost, não é monoespaçada */
 
-  --shadow-hard: var(--shadow-hard);
-  --shadow-hard-sm: var(--shadow-hard-sm);
-  --shadow-hard-lg: var(--shadow-hard-lg);
+  /* Sem sombras em repouso: os tokens antigos viram "nenhuma sombra" */
+  --shadow-hard: none;
+  --shadow-hard-sm: none;
+  --shadow-hard-lg: none;
 
-  --animate-stamp: stamp var(--motion-slow) var(--ease-poster);
-  --animate-slide-up: slide-up var(--motion-slow) var(--ease-poster);
-  --animate-pop-in: pop-in var(--motion-normal) var(--ease-poster);
+  --animate-stamp: stamp 400ms var(--ease-out);
+  --animate-slide-up: slide-up 400ms var(--ease-out);
+  --animate-pop-in: pop-in 250ms var(--ease-out);
 }
 
 * {
@@ -94,164 +91,135 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Jost", ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--step-body);
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(52, 211, 153, 0.35);
+  background: var(--ink);
+  color: var(--risk-mod);
 }
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* ============================================================
-   Utilitários de identidade visual
-   ============================================================ */
 
 .font-display {
-  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Jost", ui-sans-serif, system-ui, sans-serif;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
-.font-mono {
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+.font-mono { /* taste-skill-ignore: classe antiga do admin, agora Jost tabular */
+  font-family: "Jost", ui-sans-serif, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
 }
 
-/* Fundo de "blueprint": grade fina + brilho difuso. Classe mantida com o
-   nome antigo (paper-texture) para não tocar nas páginas. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Mantido por compatibilidade (RSVP/admin): agora é só o fundo */
 .paper-texture {
   position: relative;
-  isolation: isolate;
 }
 
-.paper-texture::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(154, 167, 182, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(154, 167, 182, 0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
-}
-
-.paper-texture::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(600px 400px at 85% 0%, rgba(52, 211, 153, 0.1), transparent 70%),
-    radial-gradient(500px 400px at 0% 40%, rgba(56, 189, 248, 0.07), transparent 70%);
-}
-
-/* Painel com cantoneiras — o "card" do centro de operações */
+/* Superfície de cartão no RSVP/admin: degrau de tom, sem borda nem sombra */
 .poster-card {
   position: relative;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
   background: var(--paper-light);
-  box-shadow: var(--shadow-hard);
-}
-
-.bracket {
-  position: relative;
-}
-.bracket::before,
-.bracket::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  pointer-events: none;
-  border-color: var(--green);
-}
-.bracket::before {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid;
-  border-left: 2px solid;
-  border-top-left-radius: var(--radius);
-}
-.bracket::after {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
-  border-bottom-right-radius: var(--radius);
 }
 
 .stamp {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--green);
-  border-radius: var(--radius);
 }
 
-/* Cursor de terminal piscando */
-.caret::after {
-  content: "▋";
-  margin-left: 2px;
-  color: var(--green);
-  animation: blink 1.1s steps(1) infinite;
+/* ============================================================
+   Capítulos da landing
+   ============================================================ */
+
+.chapter {
+  position: relative;
+  padding-inline: var(--page-margin);
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
+.ch-paper {
+  background: var(--paper);
+  color: var(--ink);
+}
+.ch-low {
+  background: var(--risk-low);
+  color: var(--ink);
+}
+.ch-mod {
+  background: var(--risk-mod);
+  color: var(--ink);
+}
+.ch-high {
+  background: var(--risk-high);
+  color: var(--ink);
+}
+.ch-crit {
+  background: var(--risk-crit);
+  color: #ffffff;
+}
+.ch-night {
+  background: var(--night);
+  color: #ffffff;
+}
+
+.display {
+  font-family: "Jost", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+
+/* ============================================================
+   Movimento
+   ============================================================ */
+
+/* Entradas: o conteúdo só fica escondido quando o JS está ativo */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 700ms var(--ease-out),
+    transform 700ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes drift {
+  from {
+    transform: scale(1.04) translate3d(0, 0, 0);
   }
-}
-
-@keyframes radar {
   to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pulse-node {
-  0%,
-  100% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 1;
+    transform: scale(1.14) translate3d(-2%, -1.5%, 0);
   }
 }
 
 @keyframes stamp {
   0% {
     opacity: 0;
-    transform: scale(1.15);
-    filter: blur(4px);
+    transform: scale(1.12);
   }
   100% {
     opacity: 1;
     transform: scale(1);
-    filter: blur(0);
   }
 }
 
@@ -269,31 +237,59 @@ body {
 @keyframes pop-in {
   0% {
     opacity: 0;
-    transform: translateY(10px) scale(0.98);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 .safe-bottom {
-  padding-bottom: max(var(--space-4), env(safe-area-inset-bottom));
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
 }
 
-.focus-ring:focus-visible {
-  outline: 2px solid var(--magenta);
-  outline-offset: 2px;
+.focus-ring:focus-visible,
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
 }
 
-/* Inputs e controles nativos no tema escuro */
 input,
 select,
 textarea {
+  font-size: max(16px, 1em);
   color: var(--ink);
 }
 input::placeholder,
 textarea::placeholder {
   color: var(--muted);
   opacity: 0.8;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
 }

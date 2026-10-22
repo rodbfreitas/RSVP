@@ -4,10 +4,10 @@
 
 export const EVENT = {
   slug: "encontro-governanca-seguranca-2026",
-  name: "Encontro da Governança de Segurança",
-  shortName: "Encontro GovSec",
+  name: "Encontro Ger. Sr. Governança, Riscos e Continuidade",
+  shortName: "Encontro GRC",
   code: "GOV-2026-1217",
-  hosts: "Governança de Segurança",
+  hosts: "Ger. Sr. Governança, Riscos e Continuidade",
   dateISO: "2026-12-17",
   dateLabel: "17.12.2026",
   dateLabelShort: "17/12",
@@ -29,100 +29,111 @@ export const EVENT = {
   sportsPricePerPerson: 30,
 } as const;
 
+// Pauta do dia. startH/endH em horas decimais, usados pelo seletor
+// "Chego às…" para dizer o que já passou, o que está rolando e o que vem.
 export const SCHEDULE = [
   {
-    time: "09H",
-    until: "10H",
-    color: "magenta",
-    tag: "SPRINT REVIEW",
-    title: "REUNIÃO DE FECHAMENTO 2026",
-    items: ["Retrospectiva do ano", "Indicadores e entregas", "Prioridades de 2027"],
+    time: "09h",
+    until: "10h",
+    startH: 9,
+    endH: 10,
+    title: "Reunião de fechamento 2026",
+    note: "Retrospectiva do ano, indicadores e prioridades de 2027.",
   },
   {
-    time: "11H",
-    until: "16H",
-    color: "green",
-    tag: "STRESS TEST",
-    title: "CÁRDIO QUEIMA BUCHO",
-    items: ["Beach Tennis", "Vôlei", "Futevôlei"],
-    note: "Quadras de areia liberadas. R$30 só pra quem for jogar (aceita Wellhub e TotalPass).",
+    time: "11h",
+    until: "16h",
+    startH: 11,
+    endH: 16,
+    title: "Cárdio Queima Bucho",
+    note: "Quadras de areia liberadas: beach tennis, vôlei e futevôlei.",
   },
   {
-    time: "12H",
+    time: "12h",
+    until: "22h",
+    startH: 12,
+    endH: 22,
+    title: "Comes e bebes",
+    note: "Quiosques e food trucks no local. Cada um pede e paga o seu.",
+  },
+  {
+    time: "15h30",
     until: null,
-    color: "orange",
-    tag: "REABASTECIMENTO",
-    title: "COMES E BEBES",
-    items: ["Comida", "Cerveja", "Drinks", "Açaí"],
-    note: "A partir das 12h. Cada um pede e paga o que quiser direto nos quiosques.",
+    startH: 15.5,
+    endH: 16,
+    title: "Encerramento e agradecimentos",
+    note: "A mensagem de fechamento do ano, com todo mundo junto.",
   },
   {
-    time: "15H30",
-    until: null,
-    color: "purple",
-    tag: "RELEASE NOTES",
-    title: "ENCERRAMENTO E AGRADECIMENTOS",
-    items: ["Mensagem de fechamento do ano"],
-  },
-  {
-    time: "16H",
-    until: "22H",
-    color: "yellow",
-    tag: "MODO LIVRE",
-    title: "CADA UM POR SI",
-    items: ["Quadras offline", "Bar online"],
-    note: "As quadras fecham às 16h, mas o bar segue aberto até as 22h.",
+    time: "16h",
+    until: "22h",
+    startH: 16,
+    endH: 22,
+    title: "Cada um por si",
+    note: "As quadras fecham. O bar segue aberto até as 22h.",
   },
 ] as const;
 
+export const ARRIVAL_OPTIONS = [9, 11, 12, 14, 16, 19] as const;
+
 export const SPORTS = ["Beach Tennis", "Futevôlei", "Vôlei", "Livre"] as const;
 
-export const INFO_UTEIS = [
+// "Riscos mapeados": cada dúvida comum escrita como risco + mitigação.
+// level segue a matriz de risco (low | mod | high).
+export const RISKS = [
   {
-    icon: "ticket",
-    color: "green",
-    title: "ENTRADA LIBERADA",
-    description:
-      "Sem ingresso e sem consumação mínima. Só paga quem for jogar nas quadras (R$30). Fora isso, é só chegar e pedir o que quiser no local.",
+    level: "high",
+    risk: "Perder o prazo de confirmação",
+    mitigation:
+      "Confirme até 1º de novembro. Leva uns 30 segundos, sem cadastro e sem senha, e dá para alterar a resposta depois.",
+    linkLabel: "Confirmar presença",
+    href: "/rsvp",
   },
   {
-    icon: "utensils",
-    color: "orange",
-    title: "COMIDA E BEBIDA",
-    description:
-      "O local tem cardápio bem completo: refeições, lanches, porções e açaí, além de bebidas não alcoólicas e drinks. Cada um pede e paga o que quiser, no seu ritmo.",
+    level: "low",
+    risk: "Ter que pagar para entrar",
+    mitigation:
+      "Entrada liberada, sem ingresso e sem consumação mínima. Só paga quem for jogar nas quadras: R$30 por pessoa.",
+  },
+  {
+    level: "low",
+    risk: "Pagar a quadra do próprio bolso",
+    mitigation:
+      "A Arena aceita check-in pelo Wellhub (a partir do Silver+) e pelo TotalPass (a partir do TP3).",
+  },
+  {
+    level: "low",
+    risk: "Passar fome",
+    mitigation:
+      "Refeições, lanches, porções, açaí, bebidas e drinks nos quiosques do local. Cada um pede e paga o que quiser, no seu ritmo.",
     linkLabel: "Ver quem vai estar lá",
     href: "/comidas",
   },
   {
-    icon: "shower",
-    color: "magenta",
-    title: "VESTIÁRIO COMPLETO",
-    description:
-      "Armário e chuveiro à disposição. Leve uma troca de roupa, tome um banho depois das quadras e siga pro modo livre.",
-  },
-  {
-    icon: "parking",
-    color: "purple",
-    title: "ESTACIONAMENTO",
-    description:
-      "A arena não tem vaga própria, mas a região tem bastante opção de estacionamento pago pertinho.",
+    level: "mod",
+    risk: "Não ter onde estacionar",
+    mitigation:
+      "A Arena não tem vaga própria, mas a região tem bastante estacionamento pago pertinho.",
     linkLabel: "Ver estacionamentos próximos",
     linkUrlKey: "parkingMapsUrl",
   },
   {
-    icon: "shirt",
-    color: "yellow",
-    title: "O QUE VESTIR",
-    description:
-      "Pra reunião, o de sempre. Pras quadras, roupa de esporte + protetor solar (o vestiário resolve a troca). Depois, fica à vontade.",
+    level: "low",
+    risk: "Suar e não ter onde se trocar",
+    mitigation:
+      "Vestiário completo, com armário e chuveiro. Leve uma troca de roupa e siga para o modo livre.",
   },
   {
-    icon: "rain",
-    color: "magenta",
-    title: "E SE CHOVER?",
-    description:
-      "Plano de contingência ativo: a Arena tem área coberta, então o encontro não para por causa de chuva.",
+    level: "mod",
+    risk: "Errar na roupa",
+    mitigation:
+      "Para a reunião, o de sempre. Para as quadras, roupa de esporte e protetor solar. Depois das 16h, fica à vontade.",
+  },
+  {
+    level: "low",
+    risk: "Chover",
+    mitigation:
+      "A Arena tem área coberta. O encontro não para por causa de chuva.",
   },
 ] as const;
 
@@ -185,7 +196,7 @@ export const FOOD_TRUCKS = [
   },
 ] as const;
 
-export const WHATSAPP_INVITE_MESSAGE = `🛡️ ENCONTRO DA GOVERNANÇA DE SEGURANÇA
+export const WHATSAPP_INVITE_MESSAGE = `🛡️ ENCONTRO GER. SR. GOVERNANÇA, RISCOS E CONTINUIDADE
 
 📅 17/12/2026 · 09h às 22h
 📍 Arena Éssipê — Barra Funda
@@ -204,5 +215,5 @@ export function buildWhatsAppInviteMessage(url: string) {
 
 export function buildReminderMessage(name: string, _guestCount?: number) {
   void _guestCount;
-  return `Oi, ${name}! Passando para lembrar do Encontro da Governança de Segurança no dia 17/12, na Arena Éssipê. Sua presença está confirmada. Te esperamos!`;
+  return `Oi, ${name}! Passando para lembrar do Encontro Ger. Sr. Governança, Riscos e Continuidade no dia 17/12, na Arena Éssipê. Sua presença está confirmada. Te esperamos!`;
 }

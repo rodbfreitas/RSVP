@@ -36,8 +36,8 @@ export default function RsvpPage() {
             <p className="text-ink/70 mb-1">
               {EVENT.name} · {EVENT.dateLabel} · {EVENT.venue}
             </p>
-            <p className="font-mono text-xs md:text-sm text-orange mb-8">
-              DEADLINE DE COMPLIANCE: {EVENT.rsvpDeadlineLabel}
+            <p className="text-[length:var(--step-body)] font-bold mb-8">
+              Confirme até 1º de novembro.
             </p>
 
             <RsvpForm

@@ -18,7 +18,7 @@ export default async function AdminLayout({
         <header className="border-b border-line bg-paper-light">
           <div className="max-w-[1200px] mx-auto px-5 md:px-8 py-4 flex items-center justify-between">
             <p className="font-display uppercase text-lg md:text-xl">
-              <span className="font-mono text-green">&gt;_</span> GovSec <span className="text-muted font-mono text-sm md:text-base">/admin</span>
+              Encontro GRC <span className="text-muted font-mono text-sm md:text-base">/admin</span>
             </p>
             <LogoutButton />
           </div>
