@@ -24,18 +24,16 @@ export function Hero() {
             >
               Encontro Ger. Sr.
             </span>
-            <span
-              className="block uppercase"
-              style={{ fontSize: "clamp(2.5rem, 12vw, 5.2rem)" }}
-            >
-              Governança,
-            </span>
-            <span
-              className="block uppercase text-green"
-              style={{ fontSize: "clamp(1.55rem, 6.6vw, 2.9rem)" }}
-            >
-              Riscos e Continuidade
-            </span>
+            {/* As três gerências com o mesmo peso: mesmo tamanho e mesma cor */}
+            {["Governança,", "Riscos e", "Continuidade"].map((line) => (
+              <span
+                key={line}
+                className="block uppercase"
+                style={{ fontSize: "clamp(2.1rem, 11vw, 4.6rem)" }}
+              >
+                {line}
+              </span>
+            ))}
           </h1>
 
           <p className="font-mono text-sm md:text-base text-muted mb-6 caret">
