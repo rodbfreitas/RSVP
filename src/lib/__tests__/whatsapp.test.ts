@@ -20,7 +20,7 @@ test("buildWaShareLink inclui o telefone normalizado quando fornecido", () => {
 
 test("buildWhatsAppInviteMessage substitui o placeholder da URL", () => {
   const msg = buildWhatsAppInviteMessage("https://encontro-governanca.vercel.app");
-  assert.match(msg, /ENCONTRO DA GOVERNANÇA DE SEGURANÇA/);
+  assert.match(msg, /ENCONTRO GER\. SR\. GOVERNANÇA, RISCOS E CONTINUIDADE/);
   assert.match(msg, /https:\/\/encontro-governanca\.vercel\.app/);
   assert.doesNotMatch(msg, /\{url\}/);
 });

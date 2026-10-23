@@ -13,7 +13,7 @@ import "@fontsource/inter/700.css";
 import "./globals.css";
 
 const siteUrl = "https://encontro-governanca.vercel.app";
-const title = "Encontro da Governança de Segurança — 17.12.2026";
+const title = "Encontro Ger. Sr. Governança, Riscos e Continuidade — 17.12.2026";
 const description =
   "17.12.2026 · 09h às 22h · Arena Éssipê, Barra Funda/SP. Reunião de fechamento 2026, quadras de areia, comes e bebes. Confirme sua presença até 01/11.";
 
@@ -25,15 +25,15 @@ export const metadata: Metadata = {
     title,
     description,
     url: siteUrl,
-    siteName: "Encontro da Governança de Segurança",
+    siteName: "Encontro Ger. Sr. Governança, Riscos e Continuidade",
     locale: "pt_BR",
     type: "website",
     images: [
       {
-        url: "/assets/posters/og-govsec.png",
+        url: "/assets/posters/og-grc.png",
         width: 1200,
         height: 630,
-        alt: "Encontro da Governança de Segurança — 17.12.2026, Arena Éssipê",
+        alt: "Encontro Ger. Sr. Governança, Riscos e Continuidade — 17.12.2026, Arena Éssipê",
       },
     ],
   },
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/assets/posters/og-govsec.png"],
+    images: ["/assets/posters/og-grc.png"],
   },
 };
 

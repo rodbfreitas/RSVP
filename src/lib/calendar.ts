@@ -13,7 +13,7 @@ export function buildIcsContent(): string {
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Encontro GovSec//RSVP//PT-BR",
+    "PRODID:-//Encontro GRC//RSVP//PT-BR",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
     "BEGIN:VEVENT",

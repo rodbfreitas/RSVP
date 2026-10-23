@@ -4,10 +4,10 @@
 
 export const EVENT = {
   slug: "encontro-governanca-seguranca-2026",
-  name: "Encontro da Governança de Segurança",
-  shortName: "Encontro GovSec",
+  name: "Encontro Ger. Sr. Governança, Riscos e Continuidade",
+  shortName: "Encontro GRC",
   code: "GOV-2026-1217",
-  hosts: "Governança de Segurança",
+  hosts: "Ger. Sr. Governança, Riscos e Continuidade",
   dateISO: "2026-12-17",
   dateLabel: "17.12.2026",
   dateLabelShort: "17/12",
@@ -91,7 +91,7 @@ export const INFO_UTEIS = [
     title: "COMIDA E BEBIDA",
     description:
       "O local tem cardápio bem completo: refeições, lanches, porções e açaí, além de bebidas não alcoólicas e drinks. Cada um pede e paga o que quiser, no seu ritmo.",
-    linkLabel: "Ver quem vai estar lá",
+    linkLabel: "Acesse os cardápios dos food trucks",
     href: "/comidas",
   },
   {
@@ -185,7 +185,7 @@ export const FOOD_TRUCKS = [
   },
 ] as const;
 
-export const WHATSAPP_INVITE_MESSAGE = `🛡️ ENCONTRO DA GOVERNANÇA DE SEGURANÇA
+export const WHATSAPP_INVITE_MESSAGE = `🛡️ ENCONTRO GER. SR. GOVERNANÇA, RISCOS E CONTINUIDADE
 
 📅 17/12/2026 · 09h às 22h
 📍 Arena Éssipê — Barra Funda
@@ -204,5 +204,5 @@ export function buildWhatsAppInviteMessage(url: string) {
 
 export function buildReminderMessage(name: string, _guestCount?: number) {
   void _guestCount;
-  return `Oi, ${name}! Passando para lembrar do Encontro da Governança de Segurança no dia 17/12, na Arena Éssipê. Sua presença está confirmada. Te esperamos!`;
+  return `Oi, ${name}! Passando para lembrar do Encontro Ger. Sr. Governança, Riscos e Continuidade no dia 17/12, na Arena Éssipê. Sua presença está confirmada. Te esperamos!`;
 }

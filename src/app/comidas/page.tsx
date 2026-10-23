@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Quem vai estar lá — Encontro da Governança de Segurança",
+  title: "Quem vai estar lá — Encontro Ger. Sr. Governança, Riscos e Continuidade",
   description:
-    "Food trucks e quiosques confirmados no dia do Encontro da Governança de Segurança, com cardápio resumido e o PDF completo de cada um.",
+    "Food trucks e quiosques confirmados no dia do Encontro Ger. Sr. Governança, Riscos e Continuidade, com cardápio resumido e o PDF completo de cada um.",
 };
 
 const textColor: Record<string, string> = {

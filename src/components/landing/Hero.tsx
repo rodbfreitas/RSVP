@@ -22,19 +22,19 @@ export function Hero() {
               className="block text-muted font-medium"
               style={{ fontSize: "clamp(1.4rem, 6vw, 2.4rem)" }}
             >
-              Encontro da
+              Encontro Ger. Sr.
             </span>
             <span
               className="block uppercase"
               style={{ fontSize: "clamp(2.5rem, 12vw, 5.2rem)" }}
             >
-              Governança
+              Governança,
             </span>
             <span
               className="block uppercase text-green"
-              style={{ fontSize: "clamp(1.9rem, 9vw, 3.9rem)" }}
+              style={{ fontSize: "clamp(1.55rem, 6.6vw, 2.9rem)" }}
             >
-              de Segurança
+              Riscos e Continuidade
             </span>
           </h1>
 
