@@ -3,7 +3,6 @@ import { Programacao } from "@/components/landing/Programacao";
 import { Esportes } from "@/components/landing/Esportes";
 import { InformacoesUteis } from "@/components/landing/InformacoesUteis";
 import { Footer } from "@/components/landing/Footer";
-import { CtaSticky } from "@/components/landing/CtaSticky";
 
 export default function Home() {
   return (
@@ -14,7 +13,6 @@ export default function Home() {
       <Esportes />
       <InformacoesUteis />
       <Footer />
-      <CtaSticky />
     </main>
   );
 }

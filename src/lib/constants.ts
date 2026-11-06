@@ -195,7 +195,7 @@ export const WHATSAPP_INVITE_MESSAGE = `🛡️ ENCONTRO GER. SR. GOVERNANÇA, R
 🍻 Comes e bebes
 🔓 Modo livre até as 22h
 
-Confirme sua presença até 01/11:
+Todos os detalhes do dia:
 {url}`;
 
 export function buildWhatsAppInviteMessage(url: string) {

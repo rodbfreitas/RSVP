@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { EVENT } from "@/lib/constants";
 import { buttonClasses } from "@/components/ui/Button";
 import { HeroArt } from "@/components/landing/HeroArt";
@@ -67,23 +66,13 @@ export function Hero() {
           </dl>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-            <Link
-              href="/rsvp"
-              className={buttonClasses({ variant: "primary", color: "green" })}
-            >
-              CONFIRMAR PRESENÇA →
-            </Link>
             <a
               href="#programacao"
-              className={buttonClasses({ variant: "secondary" })}
+              className={buttonClasses({ variant: "primary", color: "green" })}
             >
-              VER ROADMAP DO DIA
+              VER ROADMAP DO DIA →
             </a>
           </div>
-
-          <p className="font-mono text-xs md:text-sm text-orange mt-4">
-            ⚠ DEADLINE DE COMPLIANCE: confirme até {EVENT.rsvpDeadlineLabel}
-          </p>
         </div>
 
         <div className="order-1 lg:order-2 flex justify-center">
