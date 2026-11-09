@@ -16,14 +16,14 @@ export const EVENT = {
   endTime: "22:00",
   timeLabel: "09h às 22h",
   venue: "Arena Éssipê",
-  address: "Rua Inhaúma, 71 — Barra Funda, São Paulo/SP",
-  neighborhood: "Barra Funda/SP",
+  address: "R. Prof. Walter Lerner, 71 — Várzea da Barra Funda, São Paulo/SP, 01136",
+  neighborhood: "Várzea da Barra Funda/SP",
   // Prazo preferencial de RSVP — não bloqueia confirmação após a data.
   rsvpDeadlineLabel: "01/11",
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Arena+Essipe+Rua+Inhauma+71+Barra+Funda+Sao+Paulo",
+    "https://www.google.com/maps/search/?api=1&query=Arena+Essipe+R.+Prof.+Walter+Lerner+71+Varzea+da+Barra+Funda+Sao+Paulo",
   parkingMapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=estacionamento+perto+de+Rua+Inhauma+71+Barra+Funda+Sao+Paulo",
+    "https://www.google.com/maps/search/?api=1&query=estacionamento+perto+de+R.+Prof.+Walter+Lerner+71+Varzea+da+Barra+Funda+Sao+Paulo",
   targetGuests: 100,
   recommendedRsvp: 110,
   sportsPricePerPerson: 30,
@@ -188,7 +188,7 @@ export const FOOD_TRUCKS = [
 export const WHATSAPP_INVITE_MESSAGE = `🛡️ ENCONTRO GER. SR. GOVERNANÇA, RISCOS E CONTINUIDADE
 
 📅 17/12/2026 · 09h às 22h
-📍 Arena Éssipê — Barra Funda
+📍 Arena Éssipê — R. Prof. Walter Lerner, 71, Várzea da Barra Funda
 
 🗂️ Reunião de fechamento 2026
 🏐 Quadras de areia liberadas

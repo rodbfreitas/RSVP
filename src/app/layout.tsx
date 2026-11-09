@@ -15,7 +15,7 @@ import "./globals.css";
 const siteUrl = "https://encontro-governanca.vercel.app";
 const title = "Encontro Ger. Sr. Governança, Riscos e Continuidade — 17.12.2026";
 const description =
-  "17.12.2026 · 09h às 22h · Arena Éssipê, Barra Funda/SP. Reunião de fechamento 2026, quadras de areia, comes e bebes.";
+  "17.12.2026 · 09h às 22h · Arena Éssipê, Várzea da Barra Funda/SP. Reunião de fechamento 2026, quadras de areia, comes e bebes.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
